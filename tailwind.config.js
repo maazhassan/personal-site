@@ -15,6 +15,9 @@ module.exports = {
       fontFamily: {
         'sans': ['Rubik', 'sans-serif']
       },
+      screens: {
+        '3xl': '2000px',
+      }
     },
   },
   plugins: [],
