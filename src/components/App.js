@@ -1,8 +1,20 @@
-import Landing from "./Landing";
+import Landing from "./landing/Landing";
+import { useState } from 'react';
 
-function App() {
+const App = () => {
+  const [switchStatus, setStatus] = useState(true);
+
+  const handleSwitchClicked = () => {
+    setStatus(!switchStatus);
+  }
+
   return (
-    <Landing />
+    <div className={`h-screen ${switchStatus ? 'bg-neutral-50' : 'bg-dark-blue'}`}>
+      <Landing 
+        switchStatus={switchStatus}
+        onSwitchClicked={() => handleSwitchClicked()}
+      />
+    </div>
   );
 }
 
