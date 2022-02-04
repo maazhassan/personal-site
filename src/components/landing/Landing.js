@@ -5,10 +5,10 @@ import Typewriter from 'typewriter-effect';
 const Landing = props => {
 
   return (
-    <div className="overflow-auto text-center">
+    <div className="overflow-hidden text-center">
       <div className="mt-32 2xl:mt-52 3xl:mt-80 relative">
         <Switch 
-          className="h-36 2xl:h-44 3xl:h-52 absolute z-10 mx-auto left-0 right-0 my-auto top-0 bottom-0 cursor-pointer"
+          className={`h-36 2xl:h-44 3xl:h-52 absolute z-10 mx-auto left-0 right-0 my-auto top-0 bottom-0 ${props.switchStatus ? 'cursor-pointer' : ''}`}
           onClick={() => props.onSwitchClicked()}
           isOn={props.switchStatus}
           styles={`fill-transparent ${props.switchStatus ? 'stroke-dark-blue' : 'stroke-neutral-50'} stroke-[5px]`}
