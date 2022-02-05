@@ -1,9 +1,8 @@
-import Switch from './Switch';
+import Switch from '../common/Switch';
 import SwitchBorder from './SwitchBorder';
 import Typewriter from 'typewriter-effect';
 
 const Landing = props => {
-
   return (
     <div className="overflow-hidden text-center">
       <div className="mt-32 2xl:mt-52 3xl:mt-80 relative">
@@ -13,6 +12,7 @@ const Landing = props => {
           isOn={props.switchStatus}
           styles={`fill-transparent ${props.switchStatus ? 'stroke-dark-blue' : 'stroke-neutral-50'} stroke-[5px]`}
           accentFill={props.switchStatus ? '#b4b4b4' : '#39454d'}
+          showDetails={true}
         />
         <SwitchBorder 
           className="h-72 2xl:h-80 3xl:h-96 relative z-0 mx-auto left-0 right-0"

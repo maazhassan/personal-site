@@ -1,19 +1,25 @@
 import TitleBar from './TitleBar';
 import { useState } from 'react';
 import Border from './Border';
+import SwitchBar from './SwitchBar';
 
 const Main = () => {
+  const [activeSwitch, setActiveSwitch] = useState(0);
+
+  const handleSwitchClicked = num => {
+    activeSwitch === num ? setActiveSwitch(0) : setActiveSwitch(num);
+  }
+
   return (
-    <div className="">
+    <div>
       <TitleBar />
-      <div className="mt-10 relative">
-        <Border 
-          className="stroke-blue-gray stroke-[4px] fill-transparent mx-auto left-0 right-0"
-        />
-      </div>
-      <div className="relative text-center mt-10">
-        <span className="text-neutral-50 text-5xl">Hello</span>  
-      </div>
+      <Border 
+        className="stroke-blue-gray stroke-[4px] fill-transparent mx-auto left-0 right-0 mt-8"
+      />
+      <SwitchBar 
+        activeSwitch={activeSwitch}
+        onSwitchClicked={num => handleSwitchClicked(num)}
+      />
     </div>
   );
 }

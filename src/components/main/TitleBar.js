@@ -10,7 +10,7 @@ const TitleBar = () => {
           MAAZ HASSAN
         </span>
       </div>
-      <div className="flex flex-row justify-center gap-x-8 mt-2">
+      <div className="flex flex-row justify-center gap-x-8 mt-3">
         <a href="mailto:contact@maazhassan.net">
           <BsEnvelopeFill className="text-neutral-50 hover:text-text-blue cursor-pointer" size="30px" />
         </a>

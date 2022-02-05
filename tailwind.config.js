@@ -9,7 +9,7 @@ module.exports = {
         'text-blue': '#35415b',
         'blue-gray': '#6f8695',
         'blue': '#2fcccc',
-        'green': '#7ad94e',
+        'green': '#65d930',
         'orange': '#e56f20',
       },
       fontFamily: {
