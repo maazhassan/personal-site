@@ -8,21 +8,29 @@ const borderColors = ['stroke-blue-gray', 'stroke-blue', 'stroke-green', 'stroke
 const Main = () => {
   const [activeSwitch, setActiveSwitch] = useState(0);
   const [toggle, setToggle] = useState(false);
-  const [firstRender, setFirstRender] = useState(true);
   const [color, setColor] = useState(borderColors[0]);
+  const [switchReady, setSwitchReady] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      setColor(borderColors[activeSwitch]);
-      setToggle(true);
-    }, firstRender ? 0 : 1000);
+    setTimeout(() => setToggle(true), 200);
+  }, []);
 
-    setFirstRender(false);
+  useEffect(() => {
+    if (!switchReady) {
+      setTimeout(() => {
+        setToggle(true);
+        setColor(borderColors[activeSwitch]);
+      }, 1050);
+    }
   });
 
   const handleSwitchClicked = num => {
-    activeSwitch === num ? setActiveSwitch(0) : setActiveSwitch(num);
-    setToggle(false);
+    if (switchReady) {
+      activeSwitch === num ? setActiveSwitch(0) : setActiveSwitch(num);
+      setToggle(false);
+      setSwitchReady(false);
+      setTimeout(() => setSwitchReady(true), 2100);
+    }
   }
 
   return (
