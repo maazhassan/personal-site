@@ -6,14 +6,14 @@ import useAnimatedPath from '../../hooks/animatedPath';
 const Border = props => {
   const [dimensions, setDimensions] = useState({
     width: window.innerWidth,
-    height: window.innerHeight * 0.6
+    height: window.innerHeight * 0.615
   });
 
   useEffect(() => {
     const handleResize = () => {
       setDimensions({
         width: window.innerWidth,
-        height: window.innerHeight * 0.6
+        height: window.innerHeight * 0.615
       });
     };
 

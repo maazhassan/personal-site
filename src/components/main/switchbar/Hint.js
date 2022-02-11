@@ -8,7 +8,7 @@ const Hint = props => {
   return (
     <animated.span
       {...animatedProps}
-      className={`text-sm text-blue-gray absolute ${props.right} top-20 w-28 text-center`}
+      className={`text-sm text-blue-gray absolute ${props.position}`}
     >
       Click again to go back, or click a different switch
     </animated.span>
