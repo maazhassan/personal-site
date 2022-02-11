@@ -35,7 +35,7 @@ const Border = props => {
       <animated.path
         {...animationProps}
         d={`M${dimensions.width/2 + 1},${dimensions.height-3}
-           l-${dimensions.width/2 - dimensions.width/15},0
+           l-${dimensions.width/2 - ((dimensions.width**2/15000) + 2)},0
            a8,8,0,0,1-8-8
            V11
            a8,8,0,0,1,8-8
@@ -45,7 +45,7 @@ const Border = props => {
       <animated.path
         {...animationProps}
         d={`M${dimensions.width/2 - 1},3
-           l${dimensions.width/2 - dimensions.width/15},0
+           l${dimensions.width/2 - ((dimensions.width**2/15000) + 2)},0
            a8,8,0,0,1,8,8
            V${dimensions.height - 11}
            a8,8,0,0,1-8,8

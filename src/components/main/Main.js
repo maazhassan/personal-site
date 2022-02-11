@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import TitleBar from './TitleBar';
 import Border from './Border';
-import SwitchBar from './SwitchBar';
+import SwitchBar from './switchbar/SwitchBar';
 import { animated } from 'react-spring';
 import useAnimatedFade from '../../hooks/animatedFade';
 
@@ -18,6 +18,7 @@ const Main = () => {
   const [mainFadeToggle, setMainFadeToggle] = useState(false);
 
   useEffect(() => {
+    setMainFadeToggle(true);
     setTimeout(() => setBorderToggle(true), INIT_BORDER_RENDER_DELAY);
   }, []);
 
@@ -30,11 +31,7 @@ const Main = () => {
     }
   });
 
-  useEffect(() => {
-    setMainFadeToggle(true);
-  }, [mainFadeToggle]);
-
-  const animationProps = useAnimatedFade(mainFadeToggle, 0);
+  const animationProps = useAnimatedFade(mainFadeToggle);
 
   const handleSwitchClicked = num => {
     if (switchReady) {
@@ -50,7 +47,7 @@ const Main = () => {
       {...animationProps}
     >
       <TitleBar />
-      <div className="mx-auto left-0 right-0 mt-8">
+      <div className="mx-auto left-0 right-0 mt-4 md:mt-6">
         <Border 
           className={color + " stroke-[4px] fill-transparent"}
           toggle={borderToggle}
@@ -59,6 +56,7 @@ const Main = () => {
       <SwitchBar 
         activeSwitch={activeSwitch}
         onSwitchClicked={num => handleSwitchClicked(num)}
+        switchReady={switchReady}
       />
     </animated.div>
   );

@@ -5,8 +5,8 @@ import { useState } from 'react';
 const MAIN_RENDER_DELAY = 1400;
 
 const App = () => {
-  const [switchStatus, setStatus] = useState(true);
-  const [showLanding, setShowLanding] = useState(true);
+  const [switchStatus, setStatus] = useState(false);
+  const [showLanding, setShowLanding] = useState(false);
 
   const handleSwitchClicked = () => {
     setStatus(false);
