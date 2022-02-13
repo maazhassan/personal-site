@@ -1,15 +1,14 @@
-import { config, useSpring } from 'react-spring';
+import { config, useTransition } from 'react-spring';
 
 const useAnimatedHint = toggle => {
-  const animatedStyle = useSpring({
-    opacity: toggle ? 1 : 0,
-    transform: toggle ? 'translateY(0px)' : 'translateY(10px)',
+  const transitions = useTransition(toggle, {
+    from: { opacity: 0, transform: 'translateY(10px)' },
+    enter: { opacity: 1, transform: 'translateY(0px)' },
+    leave: { opacity: 0, transform: 'translateY(10px)' },
     config: config.slow,
   });
 
-  return {
-    style: animatedStyle,
-  }
+  return transitions;
 }
 
 export default useAnimatedHint;

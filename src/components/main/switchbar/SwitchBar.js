@@ -12,8 +12,8 @@ const SwitchBar = props => {
 
   const handleSwitchClicked = num => {
     if (props.switchReady) {
-      if (!userSeen) {
-      // if (hint === null) {
+      // if (!userSeen) {
+      if (hint === null) {
         window.innerWidth > 870 ? setHint(num) : setHint(4);
         setUserSeen(true);
         localStorage.setItem('userSeen', true);
@@ -21,7 +21,7 @@ const SwitchBar = props => {
       }
       else if (hint !== null) {
         setHintToggle(false);
-        setTimeout(() => setHint(null), 500);
+        setTimeout(() => setHint(null), 1000);
       }
     }
   }
@@ -39,7 +39,14 @@ const SwitchBar = props => {
           showDetails={true}
         />
         {
-          hint === 1 && <Hint position="right-[7.5rem] 3xl:right-36 top-20 w-28 text-center" toggle={hintToggle} />
+          hint === 1 && (
+            <Hint
+              className="text-sm text-blue-gray absolute right-[7.5rem] 3xl:right-36 top-20 w-28 text-center"
+              text="Click again to go back, or click a different switch"
+              toggle={hintToggle}
+              tag="span"
+            />
+          )
         }
       </div>
       <div className={switchDivClass}>
@@ -53,7 +60,14 @@ const SwitchBar = props => {
           showDetails={true}
         />
         {
-          hint === 2 && <Hint position="right-32 3xl:right-[9.5rem] top-20 w-28 text-center" toggle={hintToggle} />
+          hint === 2 && (
+            <Hint
+              className="text-sm text-blue-gray absolute right-32 3xl:right-[9.5rem] top-20 w-28 text-center"
+              text="Click again to go back, or click a different switch"
+              toggle={hintToggle}
+              tag="span"
+            />
+          )
         }
       </div>
       <div className={switchDivClass}>
@@ -67,11 +81,25 @@ const SwitchBar = props => {
           showDetails={true}
         />
         {
-          hint === 3 && <Hint position="right-28 3xl:right-[8.5rem] top-20 w-28 text-center" toggle={hintToggle} />
+          hint === 3 && (
+            <Hint
+              className="text-sm text-blue-gray absolute right-28 3xl:right-[8.5rem] top-20 w-28 text-center"
+              text="Click again to go back, or click a different switch"
+              toggle={hintToggle}
+              tag="span"
+            />
+          )
         }
       </div>
       {
-        hint === 4 && <Hint position="-top-12" toggle={hintToggle} />
+        hint === 4 && (
+          <Hint
+            className="text-sm text-blue-gray absolute -top-12"
+            text="Click again to go back, or click a different switch"
+            toggle={hintToggle}
+            tag="span"
+          />
+        )
       }
     </div>
   );
