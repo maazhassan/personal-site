@@ -4,6 +4,7 @@ import Border from './Border';
 import SwitchBar from './switchbar/SwitchBar';
 import { animated } from 'react-spring';
 import useAnimatedFade from '../../hooks/animatedFade';
+import Content from './content/Content';
 
 const borderColors = ['stroke-blue-gray', 'stroke-blue', 'stroke-green', 'stroke-orange'];
 const INIT_BORDER_RENDER_DELAY = 50;
@@ -31,7 +32,7 @@ const Main = () => {
     }
   });
 
-  const animationProps = useAnimatedFade(mainFadeToggle);
+  const animProps = useAnimatedFade(mainFadeToggle);
 
   const handleSwitchClicked = num => {
     if (switchReady) {
@@ -44,16 +45,20 @@ const Main = () => {
 
   return (
     <animated.div
-      {...animationProps}
+      {...animProps}
     >
       <TitleBar />
-      <div className="mx-auto left-0 right-0 mt-4 md:mt-6">
+      <div className="mt-4 md:mt-6 3xl:mt-8 relative">
         <Border 
           className={color + " stroke-[4px] fill-transparent"}
           toggle={borderToggle}
         />
+        <Content 
+          activeSwitch={activeSwitch}
+        />
       </div>
-      <SwitchBar 
+      <SwitchBar
+        className="mt-2 md:mt-5 3xl:mt-10"
         activeSwitch={activeSwitch}
         onSwitchClicked={num => handleSwitchClicked(num)}
         switchReady={switchReady}

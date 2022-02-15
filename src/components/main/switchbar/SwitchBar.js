@@ -12,8 +12,8 @@ const SwitchBar = props => {
 
   const handleSwitchClicked = num => {
     if (props.switchReady) {
-      // if (!userSeen) {
-      if (hint === null) {
+      if (!userSeen) {
+      // if (hint === null) {
         window.innerWidth > 870 ? setHint(num) : setHint(4);
         setUserSeen(true);
         localStorage.setItem('userSeen', true);
@@ -27,7 +27,7 @@ const SwitchBar = props => {
   }
 
   return (
-    <div className="flex flex-row justify-center gap-6 sm:gap-24 md:gap-28 mt-2 md:mt-5 relative">
+    <div className={'flex flex-row justify-center gap-6 sm:gap-24 md:gap-28 relative ' + props.className}>
       <div className={switchDivClass}>
         <span className="text-2xl md:text-3xl 3xl:text-4xl text-blue">Web Dev</span>
         <Switch 
