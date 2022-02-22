@@ -18,9 +18,9 @@ const About = props => {
   return (
     <animated.div
       {...divAnimProps}
-      className="absolute w-full h-full p-10 md:pt-20 top-0 text-center"
+      className="absolute w-full h-full top-0 text-center flex flex-col justify-center items-center px-10 pb-6"
     >
-      <p className="text-2xl md:text-3xl text-neutral-50 mx-auto left-0 right-0 w-full md:w-[80%] lg:w-1/2 xl:w-[40%] 2xl:w-1/3">
+      <p className="text-2xl md:text-4xl 3xl:text-5xl text-neutral-50 w-full md:w-[80%] lg:w-1/2 xl:w-[40%] 2xl:w-1/3">
         A software developer, studying at the&nbsp;
         <a
           href="https://www.ucalgary.ca/" 
@@ -53,9 +53,9 @@ const About = props => {
             className={`bg-current absolute h-[2px] w-full my-0 bottom-0 left-0`}>
           </animated.span>
         </a>.
-        <br/><br/><br/><br/>
+        <br/><br/>
 
-        Click a switch below to learn more about me!
+        Click a switch below to see some of my work!
       </p>
     </animated.div>
   );
