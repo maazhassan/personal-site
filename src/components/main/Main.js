@@ -10,6 +10,7 @@ const borderColors = ['stroke-blue-gray', 'stroke-blue', 'stroke-green', 'stroke
 const INIT_BORDER_RENDER_DELAY = 50;
 const BORDER_REBOUND_DELAY = 1050;
 const SWITCH_READY_DELAY = 2100;
+const BORDER_HEIGHT_SCALE = 0.615;
 
 const Main = () => {
   const [activeSwitch, setActiveSwitch] = useState(0);
@@ -52,6 +53,7 @@ const Main = () => {
         <Border 
           className={color + " stroke-[4px] fill-transparent"}
           toggle={borderToggle}
+          heightScale={BORDER_HEIGHT_SCALE}
         />
         <Content 
           activeSwitch={activeSwitch}

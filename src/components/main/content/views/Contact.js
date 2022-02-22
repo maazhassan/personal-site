@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { animated } from 'react-spring';
-import useAnimatedFade from "../../../hooks/animatedFade";
+import useAnimatedFade from "../../../../hooks/animatedFade";
 
-const WebDev = props => {
+const Contact = props => {
   const [mountToggle, setMountToggle] = useState(false);
 
   useEffect(() => {
@@ -21,4 +21,4 @@ const WebDev = props => {
   );
 }
 
-export default WebDev;
+export default Contact;

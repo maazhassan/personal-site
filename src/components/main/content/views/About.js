@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { animated } from 'react-spring';
-import useAnimatedFade from "../../../hooks/animatedFade";
-import useAnimatedUnderline from "../../../hooks/animatedUnderline";
+import useAnimatedFade from "../../../../hooks/animatedFade";
+import useAnimatedUnderline from "../../../../hooks/animatedUnderline";
 
 const About = props => {
   const [mountToggle, setMountToggle] = useState(false);

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { animated } from 'react-spring';
-import useAnimatedFade from "../../../hooks/animatedFade";
+import useAnimatedFade from "../../../../hooks/animatedFade";
+import Card from "../Card";
 
-const OtherDev = props => {
+const ProjectView = props => {
   const [mountToggle, setMountToggle] = useState(false);
 
   useEffect(() => {
@@ -16,9 +17,9 @@ const OtherDev = props => {
       {...divAnimProps}
       className="absolute w-full h-full top-0" 
     >
-      <p className="text-neutral-50 text-3xl">Lorem ipsum dolor sit amet.</p>
+      <Card />
     </animated.div>
   );
 }
 
-export default OtherDev;
+export default ProjectView;
