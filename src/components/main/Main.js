@@ -5,6 +5,7 @@ import SwitchBar from './switchbar/SwitchBar';
 import { animated } from 'react-spring';
 import useAnimatedFade from '../../hooks/animatedFade';
 import Content from './content/Content';
+import { DimensionsProvider } from '../../contexts/dimensionsContext';
 
 const borderColors = ['stroke-blue-gray', 'stroke-blue', 'stroke-green', 'stroke-orange'];
 const INIT_BORDER_RENDER_DELAY = 50;
@@ -31,9 +32,27 @@ const Main = () => {
         setColor(borderColors[activeSwitch]);
       }, BORDER_REBOUND_DELAY);
     }
+  }, [switchReady, activeSwitch]);
+
+  const [dimensions, setDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight * BORDER_HEIGHT_SCALE
   });
 
-  const animProps = useAnimatedFade(mainFadeToggle);
+  useEffect(() => {
+    const handleResize = () => {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight * BORDER_HEIGHT_SCALE
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    }
+  }, [dimensions]);
 
   const handleSwitchClicked = num => {
     if (switchReady) {
@@ -44,20 +63,23 @@ const Main = () => {
     }
   }
 
+  const animProps = useAnimatedFade(mainFadeToggle);
+
   return (
     <animated.div
       {...animProps}
     >
       <TitleBar />
       <div className="mt-4 md:mt-6 3xl:mt-8 relative">
-        <Border 
-          className={color + " stroke-[4px] fill-transparent"}
-          toggle={borderToggle}
-          heightScale={BORDER_HEIGHT_SCALE}
-        />
-        <Content 
-          activeSwitch={activeSwitch}
-        />
+        <DimensionsProvider value={dimensions}>
+          <Border 
+            className={color + " stroke-[4px] fill-transparent"}
+            toggle={borderToggle}
+          />
+          <Content 
+            activeSwitch={activeSwitch}
+          />
+        </DimensionsProvider>
       </div>
       <SwitchBar
         className="mt-2 md:mt-5 3xl:mt-10"

@@ -1,29 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useContext } from 'react';
 import { animated } from 'react-spring';
+import DimensionsContext from '../../contexts/dimensionsContext';
 import useAnimatedPath from '../../hooks/animatedPath';
 
 
 const Border = props => {
-  const [dimensions, setDimensions] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight * props.heightScale
-  });
-
-  useEffect(() => {
-    const handleResize = () => {
-      setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight * props.heightScale
-      });
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    }
-  });
-
+  const dimensions = useContext(DimensionsContext);
   const animProps = useAnimatedPath(props.toggle);
 
   return (

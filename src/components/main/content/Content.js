@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { web, other } from './views/ProjectData';
 import About from "./views/About";
 import Contact from "./views/Contact";
 import ProjectView from "./views/ProjectView";
@@ -23,12 +24,12 @@ const Content = props => {
   }, [props.activeSwitch]);
 
   return (
-    <div className={props.className}>
+    <React.Fragment>
       {shown === 0 && <About toggle={unmountToggle === 0} />}
-      {shown === 1 && <ProjectView toggle={unmountToggle === 1} type="web" />}
-      {shown === 2 && <ProjectView toggle={unmountToggle === 2} type="other" />}
+      {shown === 1 && <ProjectView toggle={unmountToggle === 1} type={"web"} data={web} />}
+      {shown === 2 && <ProjectView toggle={unmountToggle === 2} type={"other"} data={other} />}
       {shown === 3 && <Contact toggle={unmountToggle === 3} />}
-    </div>
+    </React.Fragment>
   );
 }
 
