@@ -1,4 +1,4 @@
-import PersonalSite from '../../../../images/PersonalSite.png';
+import PersonalSite from '../../../../../images/PersonalSite.png';
 
 export const web = {
   description: (
@@ -58,7 +58,7 @@ export const other = {
       title: "Personal Site",
       stack: "React, Tailwind CSS",
       image: PersonalSite,
-      description: "Lorem ipsum",
+      description: "Lorem ipsum 1",
       github: "https://github.com/maazhassan"
     },
   ]

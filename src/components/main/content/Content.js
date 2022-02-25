@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { web, other } from './views/ProjectData';
+import { web, other } from './views/projects/ProjectData';
 import About from "./views/About";
 import Contact from "./views/Contact";
-import ProjectView from "./views/ProjectView";
+import ProjectView from "./views/projects/ProjectView";
 
 const Content = props => {
   const [shown, setShown] = useState(0);

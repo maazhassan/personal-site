@@ -8,7 +8,7 @@ const ProjectDescription = ({ hoveredProj, data }) => {
     if (hoveredProj !== null) {
       setDesc(data.projects[hoveredProj].description);
     }
-  }, [hoveredProj])
+  }, [hoveredProj, data.projects]);
 
   const conf = {mass: 3, tension: 300, friction: 30, clamp: true};
   const transitions = useTransition(hoveredProj === null, {
