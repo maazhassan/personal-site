@@ -3,6 +3,7 @@ import { animated } from 'react-spring';
 import useAnimatedFade from "../../../../hooks/animatedFade";
 import Card from "../Card";
 import DimensionsContext from "../../../../contexts/dimensionsContext";
+import ProjectDescription from "./ProjectDescription";
 
 const MOBILE_CUTOFF = 1100;
 
@@ -15,11 +16,9 @@ const ProjectView = props => {
   }, [])
 
   const handleHover = num => {
-    console.log(num + ' hovered');
     setHoveredProj(num);
   }
 
-  const textColor = props.type === 'web' ? 'text-blue' : 'text-green';
   const {width} = useContext(DimensionsContext);
   const divAnimProps = useAnimatedFade(props.toggle && mountToggle);
 
@@ -31,18 +30,12 @@ const ProjectView = props => {
       {
         width > MOBILE_CUTOFF ? (
           <React.Fragment>
-            <p className="text-2xl text-neutral-50 mt-16 w-[41rem] mx-auto">
-              {
-                hoveredProj !== null ? <span>{props.data[1][hoveredProj].description}</span> :
-                <span>
-                  {props.data[0]}&nbsp;
-                  Hover a project to view a <span className={textColor}>description</span>, or click 
-                  on it to go to its <span className={textColor}>GitHub</span> repository.
-                </span>
-              }
-            </p>
+            <ProjectDescription 
+              hoveredProj={hoveredProj}
+              data={props.data}
+            />
             <div className="flex flex-row justify-center gap-6 xl:gap-12 2xl:gap-24 absolute bottom-10 w-full mx-auto left-0 right-0">
-              {props.data[1].map((e, i) => {
+              {props.data.projects.map((e, i) => {
                 return (
                   <Card
                     image={e.image}

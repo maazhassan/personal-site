@@ -7,8 +7,8 @@ const Card = props => {
   return (
     <div
       className="inline-block hover:cursor-pointer relative"
-      onMouseOver={() => {props.onHover(props.index); setHover(true)}}
-      onMouseOut={() => {props.onHover(null); setHover(false)}}
+      onMouseEnter={() => {props.onHover(props.index); setHover(true)}}
+      onMouseLeave={() => {props.onHover(null); setHover(false)}}
       onClick={() => props.onClick()}
     >
       <CardBorder 
@@ -17,7 +17,12 @@ const Card = props => {
         toggle={hover}
       />
       <div className="flex flex-col absolute w-full h-full items-center top-0">
-        <img src={props.image} alt="Site logo" className="w-40 mt-8" />
+        <img
+          src={props.image}
+          alt="Site logo"
+          className="w-40 mt-8"
+          style={{imageRendering: '-webkit-optimize-contrast'}}
+        />
         <span className="text-3xl text-neutral-50 mt-7">{props.title}</span>
         <span className="text-xl text-text-blue">{props.stack}</span>
       </div>

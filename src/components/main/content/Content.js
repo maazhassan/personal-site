@@ -26,8 +26,8 @@ const Content = props => {
   return (
     <React.Fragment>
       {shown === 0 && <About toggle={unmountToggle === 0} />}
-      {shown === 1 && <ProjectView toggle={unmountToggle === 1} type={"web"} data={web} />}
-      {shown === 2 && <ProjectView toggle={unmountToggle === 2} type={"other"} data={other} />}
+      {shown === 1 && <ProjectView toggle={unmountToggle === 1} data={web} />}
+      {shown === 2 && <ProjectView toggle={unmountToggle === 2} data={other} />}
       {shown === 3 && <Contact toggle={unmountToggle === 3} />}
     </React.Fragment>
   );
