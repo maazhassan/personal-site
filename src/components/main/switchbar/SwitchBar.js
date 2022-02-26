@@ -94,7 +94,7 @@ const SwitchBar = props => {
       {
         hint === 4 && (
           <Hint
-            className="text-sm text-blue-gray absolute -top-12"
+            className="text-sm text-blue-gray absolute top-[-1.9rem]"
             text="Click again to go back, or click a different switch"
             toggle={hintToggle}
             tag="span"

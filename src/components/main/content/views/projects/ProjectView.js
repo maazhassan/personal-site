@@ -3,6 +3,7 @@ import { animated } from 'react-spring';
 import useAnimatedFade from "../../../../../hooks/animatedFade";
 import DimensionsContext from "../../../../../contexts/dimensionsContext";
 import ProjectViewDesktop from "./ProjectViewDesktop";
+import ProjectViewMobile from "./ProjectViewMobile";
 
 const MOBILE_CUTOFF = 1100;
 
@@ -27,7 +28,9 @@ const ProjectView = props => {
             data={props.data}
           />
         ) : (
-          ""
+          <ProjectViewMobile 
+            data={props.data}
+          />
         )
       }
     </animated.div>
