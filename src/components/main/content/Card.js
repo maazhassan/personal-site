@@ -6,10 +6,9 @@ const Card = props => {
 
   return (
     <div
-      className="inline-block hover:cursor-pointer relative"
-      onMouseEnter={() => {props.onHover(props.index); setHover(true)}}
-      onMouseLeave={() => {props.onHover(null); setHover(false)}}
-      onClick={() => props.onClick()}
+      className="hover:cursor-pointer relative"
+      onMouseEnter={() => {if (props.onHover) {props.onHover(props.index); setHover(true)}}}
+      onMouseLeave={() => {if (props.onHover) {props.onHover(null); setHover(false)}}}
     >
       <CardBorder 
         className="h-[19rem]"

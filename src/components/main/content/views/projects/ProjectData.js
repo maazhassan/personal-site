@@ -41,9 +41,9 @@ export const web = {
 
 export const other = {
   description: (
-    <p>
-      <span className="text-green">Non-web projects</span> that I've created or have been a part of.
-    </p>
+    <span>
+      <span className="text-green">Non-web projects</span> that I've created or have been a part of.<br />
+    </span>
   ),
   color: "text-green",
   projects: [

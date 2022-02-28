@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { animated, useTransition } from "react-spring";
 
-const ProjectDescription = ({ hoveredProj, data }) => {
+const ProjectDescription = ({ selectedProj, data }) => {
   const [desc, setDesc] = useState(null);
 
   useEffect(() => {
-    if (hoveredProj !== null) {
-      setDesc(data.projects[hoveredProj].description);
+    if (selectedProj !== null) {
+      setDesc(data.projects[selectedProj].description);
     }
-  }, [hoveredProj, data.projects]);
+  }, [selectedProj, data.projects]);
 
   const conf = {mass: 3, tension: 300, friction: 30, clamp: true};
-  const transitions = useTransition(hoveredProj === null, {
+  const transitions = useTransition(selectedProj === null, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },

@@ -12,21 +12,21 @@ const ProjectViewDesktop = props => {
   return (
     <React.Fragment>
       <ProjectDescription 
-        hoveredProj={hoveredProj}
+        selectedProj={hoveredProj}
         data={props.data}
       />
-      <div className="flex flex-row justify-center gap-6 xl:gap-12 2xl:gap-24 absolute bottom-10 w-full mx-auto left-0 right-0">
+      <div className="flex flex-row justify-center gap-6 xl:gap-12 2xl:gap-24 absolute bottom-10 w-full">
         {props.data.projects.map((e, i) => {
           return (
-            <Card
-              image={e.image}
-              title={e.title}
-              stack={e.stack}
-              onClick={() => window.open(e.github, '_blank').focus()}
-              onHover={num => handleHover(num)}
-              index={i}
-              key={i}
-            />
+            <a href={e.github} target="_blank" rel="noreferrer" key={i}>
+              <Card
+                image={e.image}
+                title={e.title}
+                stack={e.stack}
+                onHover={num => handleHover(num)}
+                index={i}
+              />
+            </a>
           )
         })}
       </div>
