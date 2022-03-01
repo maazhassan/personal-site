@@ -27,13 +27,15 @@ const ProjectViewMobile = props => {
                   <p className="text-lg text-neutral-50 absolute top-4 w-full left-0">
                     {e.description}
                   </p>
-                  <Card
-                    image={e.image}
-                    title={e.title}
-                    stack={e.stack}
-                    github={e.github}
-                    index={i}
-                  />
+                  <div className="w-[50%] sm:w-[40%] md:w-[30%] mx-auto">
+                    <Card
+                      image={e.image}
+                      title={e.title}
+                      stack={e.stack}
+                      github={e.github}
+                      index={i}
+                    />
+                  </div>
                 </div>
               </div>
             )
