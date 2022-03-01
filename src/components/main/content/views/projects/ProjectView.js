@@ -15,12 +15,13 @@ const ProjectView = props => {
   }, [])
 
   const {width} = useContext(DimensionsContext);
+  const widthCalc = width - (width**2/7500 - 4)
   const divAnimProps = useAnimatedFade(props.toggle && mountToggle);
 
   return (
     <animated.div
       className="absolute h-full top-0 text-center mx-auto right-0 left-0"
-      style={{width: `${width- (width**2/7500 - 4)}px`, ...divAnimProps.style}}
+      style={{width: `${widthCalc}px`, ...divAnimProps.style}}
     >
       {
         width > MOBILE_CUTOFF ? (
@@ -30,6 +31,7 @@ const ProjectView = props => {
         ) : (
           <ProjectViewMobile 
             data={props.data}
+            widthCalc={widthCalc}
           />
         )
       }
