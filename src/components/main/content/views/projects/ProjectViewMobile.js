@@ -24,13 +24,14 @@ const ProjectViewMobile = props => {
             return (
               <div className="flex flex-col h-full justify-center relative" key={i}>
                 <div style={{width: props.widthCalc}}>
-                  <p className="text-lg text-neutral-50 absolute top-4 w-full left-0">
+                  <p className="text-lg md:text-xl text-neutral-50 absolute top-4 md:top-8 w-[90%] md:w-1/2 mx-auto right-0 left-0">
                     {e.description}
                   </p>
-                  <div className="w-[50%] sm:w-[40%] md:w-[30%] mx-auto">
+                  <div className="w-[50%] sm:w-[40%] md:w-[30%] mx-auto mt-12 md:mt-16">
                     <Card
                       image={e.image}
                       title={e.title}
+                      titleSize={e.titleSize ? e.titleSize : 'text-2xl'}
                       stack={e.stack}
                       github={e.github}
                       index={i}

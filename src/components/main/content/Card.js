@@ -11,7 +11,7 @@ const Card = props => {
       rel="noreferrer"
     >
       <div
-        className={`hover:cursor-pointer relative ${props.className}`}
+        className="hover:cursor-pointer relative"
         onMouseEnter={() => {if (props.onHover) {props.onHover(props.index); setHover(true)}}}
         onMouseLeave={() => {if (props.onHover) {props.onHover(null); setHover(false)}}}
       >
@@ -27,8 +27,8 @@ const Card = props => {
             className="w-40 mt-8"
             style={{imageRendering: '-webkit-optimize-contrast'}}
           />
-          <span className="text-3xl text-neutral-50 mt-7">{props.title}</span>
-          <span className="text-xl text-text-blue">{props.stack}</span>
+          <span className={`${props.titleSize} text-neutral-50 mt-7`}>{props.title}</span>
+          <span className="text-lg text-text-blue">{props.stack}</span>
         </div>
       </div>
     </a>

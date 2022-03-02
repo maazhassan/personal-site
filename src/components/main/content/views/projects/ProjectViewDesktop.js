@@ -21,6 +21,7 @@ const ProjectViewDesktop = props => {
             <Card
               image={e.image}
               title={e.title}
+              titleSize={e.titleSize ? e.titleSize : 'text-2xl'}
               stack={e.stack}
               github={e.github}
               onHover={num => handleHover(num)}
