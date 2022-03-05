@@ -24,7 +24,7 @@ export const web = {
           <span className="text-blue"> portfolio</span>.
         </span>
       ),
-      github: "https://github.com/maazhassan"
+      github: "https://github.com/maazhassan/personal-site"
     },
     {
       title: "LibManSys",
