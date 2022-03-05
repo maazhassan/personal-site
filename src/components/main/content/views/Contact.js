@@ -22,7 +22,7 @@ const About = props => {
       className="absolute w-full h-full top-0 text-center flex flex-col justify-center items-center px-10 pb-6"
     >
       <p className="text-2xl md:text-4xl 3xl:text-5xl text-neutral-50 w-full md:w-[80%] lg:w-1/2 xl:w-[40%] 2xl:w-1/3">
-        Check out my&nbsp;
+        <span>Check out my </span>
         <a
           href="https://github.com/maazhassan" 
           className="text-blue-gray hover:cursor-pointer relative"
@@ -37,7 +37,7 @@ const About = props => {
             className={`bg-current absolute h-[2px] w-full my-0 bottom-0 left-0`}>  
           </animated.span>
         </a>
-        &nbsp;and&nbsp;
+        <span> and </span>
         <a
           href="https://www.linkedin.com/in/maaz-hassan/" 
           className="text-[#0a66c2] hover:cursor-pointer relative"
@@ -54,7 +54,7 @@ const About = props => {
         </a>.
         <br/><br/>
 
-        Have a question, or just want to chat?&nbsp;
+        <span>Have a question, or just want to chat? </span>
         <a
           href="mailto:contact@maazhassan.net" 
           className="text-blue-gray hover:cursor-pointer relative"
