@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.0845df6d.css",
-    "main.js": "/static/js/main.602aad34.js",
-    "static/media/Library.png": "/static/media/Library.586cc6d0d1fab8c3a0df.png",
-    "static/media/Rubik-Regular.ttf": "/static/media/Rubik-Regular.a1db7faf2ecd06901907.ttf",
-    "static/media/Chess.png": "/static/media/Chess.d4769cbb1fc761a75dd1.png",
-    "static/media/Crypto.png": "/static/media/Crypto.08c46a35fcfe949d9598.png",
-    "static/media/BetterD2L.png": "/static/media/BetterD2L.0057956ce104dad6d906.png",
-    "index.html": "/index.html",
-    "main.0845df6d.css.map": "/static/css/main.0845df6d.css.map",
-    "main.602aad34.js.map": "/static/js/main.602aad34.js.map"
+    "main.css": "/personal-site/static/css/main.34e63316.css",
+    "main.js": "/personal-site/static/js/main.54457470.js",
+    "static/media/Library.png": "/personal-site/static/media/Library.586cc6d0d1fab8c3a0df.png",
+    "static/media/Rubik-Regular.ttf": "/personal-site/static/media/Rubik-Regular.a1db7faf2ecd06901907.ttf",
+    "static/media/Chess.png": "/personal-site/static/media/Chess.d4769cbb1fc761a75dd1.png",
+    "static/media/Crypto.png": "/personal-site/static/media/Crypto.08c46a35fcfe949d9598.png",
+    "static/media/BetterD2L.png": "/personal-site/static/media/BetterD2L.0057956ce104dad6d906.png",
+    "index.html": "/personal-site/index.html",
+    "main.34e63316.css.map": "/personal-site/static/css/main.34e63316.css.map",
+    "main.54457470.js.map": "/personal-site/static/js/main.54457470.js.map"
   },
   "entrypoints": [
-    "static/css/main.0845df6d.css",
-    "static/js/main.602aad34.js"
+    "static/css/main.34e63316.css",
+    "static/js/main.54457470.js"
   ]
 }
