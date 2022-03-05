@@ -19,7 +19,7 @@ const ProjectDescription = ({ selectedProj, data }) => {
   });
 
   return (
-    <p className="text-2xl text-neutral-50 mt-16 w-[41rem] mx-auto relative">
+    <p className="text-2xl 3xl:text-3xl text-neutral-50 mt-16 3xl:mt-24 w-[41rem] 3xl:w-[51rem] mx-auto relative">
       {
         transitions((styles, item) => 
           item ? (

@@ -15,13 +15,12 @@ const ProjectViewDesktop = props => {
         selectedProj={hoveredProj}
         data={props.data}
       />
-      <div className="flex flex-row justify-center gap-6 xl:gap-12 2xl:gap-24 absolute bottom-10 w-full">
+      <div className="flex flex-row justify-center gap-6 xl:gap-12 2xl:gap-24 absolute bottom-10 3xl:bottom-20 w-full">
         {props.data.projects.map((e, i) => {
           return (
             <Card
               image={e.image}
               title={e.title}
-              titleSize={e.titleSize ? e.titleSize : 'text-2xl'}
               stack={e.stack}
               github={e.github}
               onHover={num => handleHover(num)}

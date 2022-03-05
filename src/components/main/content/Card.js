@@ -16,7 +16,7 @@ const Card = props => {
         onMouseLeave={() => {if (props.onHover) {props.onHover(null); setHover(false)}}}
       >
         <CardBorder 
-          className="h-[19rem]"
+          className="h-[19rem] 3xl:h-[22rem]"
           styles="fill-transparent stroke-blue-gray stroke-[3px]"
           toggle={hover}
         />
@@ -27,8 +27,8 @@ const Card = props => {
             className="w-40 mt-8"
             style={{imageRendering: '-webkit-optimize-contrast'}}
           />
-          <span className={`${props.titleSize} text-neutral-50 mt-3 md:mt-7`}>{props.title}</span>
-          <span className="text-lg text-text-blue">{props.stack}</span>
+          <span className="text-2xl 3xl:text-3xl text-neutral-50 mt-3 md:mt-7">{props.title}</span>
+          <span className="text-lg 3xl:text-2xl text-text-blue">{props.stack}</span>
         </div>
       </div>
     </a>
