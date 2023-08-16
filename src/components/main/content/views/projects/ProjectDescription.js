@@ -3,7 +3,7 @@ import { animated, useTransition } from "react-spring";
 
 const ProjectDescription = ({ selectedProj, data }) => {
   const [desc, setDesc] = useState(null);
-
+  
   useEffect(() => {
     if (selectedProj !== null) {
       setDesc(data.projects[selectedProj].description);

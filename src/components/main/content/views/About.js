@@ -38,7 +38,7 @@ const About = props => {
         </a>.
         <br/><br/>
 
-        <span>Current intern at </span>
+        <span>Former intern at </span>
         <a
           href="https://www.synopsys.com/" 
           className="text-[#5a2a82] hover:cursor-pointer relative"
