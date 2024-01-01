@@ -9,6 +9,8 @@ const App = () => {
   const [showLanding, setShowLanding] = useState(true);
 
   const handleSwitchClicked = () => {
+    document.body.classList.remove('bg-neutral-50');
+    document.body.classList.add('bg-dark-blue');
     setStatus(false);
     setTimeout(() => {
       setShowLanding(false)
@@ -17,7 +19,7 @@ const App = () => {
   }
 
   return (
-    <div className={`h-screen ${switchStatus ? 'bg-neutral-50' : 'bg-dark-blue'}`}>
+    <div className={`${window.innerHeight > 870 ? 'h-screen' : ''}`}>
     {
       showLanding ? (
         <Landing 

@@ -3,7 +3,7 @@ import Switch from "../../common/Switch";
 import Hint from "./Hint";
 
 const switchDivClass = 'flex flex-col items-center gap-1 relative';
-const switchClass = 'h-32 md:h-36 3xl:h-48 cursor-pointer';
+const switchClass = 'h-28 lg:h-36 3xl:h-48 cursor-pointer';
 
 const SwitchBar = props => {
   const [userSeen, setUserSeen] = useState(!!(localStorage.getItem('userSeen')));
@@ -27,9 +27,9 @@ const SwitchBar = props => {
   }
 
   return (
-    <div className={'flex flex-row justify-center gap-6 sm:gap-24 md:gap-28 relative ' + props.className}>
+    <div className={'flex flex-row justify-center gap-8 sm:gap-24 md:gap-28 relative ' + props.className}>
       <div className={switchDivClass}>
-        <span className="text-2xl md:text-3xl 3xl:text-4xl text-blue">Web Dev</span>
+        <span className="text-xl md:text-3xl 3xl:text-4xl text-blue">Web Dev</span>
         <Switch 
           className={switchClass}
           onClick={() => {props.onSwitchClicked(1); handleSwitchClicked(1);}}
@@ -50,7 +50,7 @@ const SwitchBar = props => {
         }
       </div>
       <div className={switchDivClass}>
-        <span className="text-2xl md:text-3xl 3xl:text-4xl text-green">Other Dev</span>
+        <span className="text-xl md:text-3xl 3xl:text-4xl text-green">Other Dev</span>
         <Switch 
           className={switchClass}
           onClick={() => {props.onSwitchClicked(2); handleSwitchClicked(2);}}
@@ -71,7 +71,7 @@ const SwitchBar = props => {
         }
       </div>
       <div className={switchDivClass}>
-        <span className="text-2xl md:text-3xl 3xl:text-4xl text-orange">Contact</span>
+        <span className="text-xl md:text-3xl 3xl:text-4xl text-orange">Contact</span>
         <Switch 
           className={switchClass}
           onClick={() => {props.onSwitchClicked(3); handleSwitchClicked(3);}}

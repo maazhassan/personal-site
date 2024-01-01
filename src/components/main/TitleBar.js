@@ -4,7 +4,7 @@ import { BsLinkedin } from 'react-icons/bs';
 
 const TitleBar = () => {
   return (
-    <div className="overflow-hidden">
+    <div className="">
       <div className="mt-2 md:mt-4 text-center">
         <span className="text-neutral-50 text-4xl md:text-5xl 3xl:text-6xl">
           MAAZ HASSAN

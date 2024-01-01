@@ -11,7 +11,7 @@ const borderColors = ['stroke-blue-gray', 'stroke-blue', 'stroke-green', 'stroke
 const INIT_BORDER_RENDER_DELAY = 50;
 const BORDER_REBOUND_DELAY = 1050;
 const SWITCH_READY_DELAY = 2100;
-const BORDER_HEIGHT_SCALE = 0.615;
+const BORDER_HEIGHT_SCALE = window.innerWidth > 767 ? 0.600 : 0.565;
 
 const Main = () => {
   const [activeSwitch, setActiveSwitch] = useState(0);
@@ -67,10 +67,11 @@ const Main = () => {
 
   return (
     <animated.div
+      className="flex flex-col h-[98svh] md:h-[98vh] justify-between"
       {...animProps}
     >
       <TitleBar />
-      <div className="mt-4 md:mt-6 3xl:mt-8 relative">
+      <div className="relative">
         <DimensionsProvider value={dimensions}>
           <Border 
             className={color + " stroke-[4px] fill-transparent"}
@@ -82,7 +83,6 @@ const Main = () => {
         </DimensionsProvider>
       </div>
       <SwitchBar
-        className="mt-2 md:mt-5 3xl:mt-10"
         activeSwitch={activeSwitch}
         onSwitchClicked={num => handleSwitchClicked(num)}
         switchReady={switchReady}

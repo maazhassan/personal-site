@@ -10,12 +10,12 @@ const ProjectViewDesktop = props => {
   }
 
   return (
-    <React.Fragment>
+    <div className="flex flex-col h-full justify-center gap-3">
       <ProjectDescription 
         selectedProj={hoveredProj}
         data={props.data}
       />
-      <div className="flex flex-row justify-center gap-6 xl:gap-12 2xl:gap-24 absolute bottom-10 3xl:bottom-20 w-full">
+      <div className="flex flex-row justify-center gap-6 xl:gap-12 2xl:gap-24 w-full">
         {props.data.projects.map((e, i) => {
           return (
             <Card
@@ -30,7 +30,7 @@ const ProjectViewDesktop = props => {
           )
         })}
       </div>
-    </React.Fragment>
+    </div>
   );
 }
 

@@ -12,8 +12,6 @@ const ProjectViewMobile = props => {
     else setSelectedProj((selectedProj + 1) % props.data.projects.length);
   }
 
-  const descSize = window.innerHeight > 700 ? 'text-lg' : 'text-base';
-
   const animProps = useSpring({
     transform: `translateX(-${selectedProj * props.widthCalc}px)`
   });
@@ -24,21 +22,19 @@ const ProjectViewMobile = props => {
         <animated.div className="flex flex-row h-full" style={animProps}>
           {props.data.projects.map((e, i) => {
             return (
-              <div className="flex flex-col h-full justify-center relative" key={i}>
-                <div style={{width: props.widthCalc}}>
-                  <p className={`${descSize} md:text-xl text-neutral-50 absolute top-4 md:top-8 w-[90%] md:w-1/2 mx-auto right-0 left-0`}>
+              <div className="h-full relative" key={i}>
+                <div className="flex flex-col h-[90%] items-center justify-between pt-4 pb-8" style={{width: props.widthCalc}}>
+                  <p className="md:text-xl text-neutral-50 md:top-8 w-[90%]">
                     {e.description}
                   </p>
-                  <div className="w-[60%] md:w-[30%] mx-auto mt-20">
-                    <Card
-                      image={e.image}
-                      title={e.title}
-                      titleSize={e.titleSize ? e.titleSize : 'text-2xl'}
-                      stack={e.stack}
-                      github={e.github}
-                      index={i}
-                    />
-                  </div>
+                  <Card
+                    image={e.image}
+                    title={e.title}
+                    titleSize={e.titleSize ? e.titleSize : 'text-2xl'}
+                    stack={''}
+                    github={e.github}
+                    index={i}
+                  />
                 </div>
               </div>
             )

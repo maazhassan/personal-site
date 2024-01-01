@@ -5,7 +5,7 @@ import DimensionsContext from "../../../../../contexts/dimensionsContext";
 import ProjectViewDesktop from "./ProjectViewDesktop";
 import ProjectViewMobile from "./ProjectViewMobile";
 
-const MOBILE_CUTOFF = 1100;
+const MOBILE_CUTOFF = 1023;
 
 const ProjectView = props => {
   const [mountToggle, setMountToggle] = useState(false);

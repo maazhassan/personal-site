@@ -19,7 +19,7 @@ const ProjectDescription = ({ selectedProj, data }) => {
   });
 
   return (
-    <p className="text-2xl 3xl:text-3xl text-neutral-50 mt-16 3xl:mt-24 w-[41rem] 3xl:w-[51rem] mx-auto relative">
+    <div className="text-2xl 3xl:text-3xl text-neutral-50 w-[41rem] 3xl:w-[51rem] mx-auto relative h-24 3xl:h-28">
       {
         transitions((styles, item) => 
           item ? (
@@ -41,7 +41,7 @@ const ProjectDescription = ({ selectedProj, data }) => {
           )
         )
       }
-    </p>
+    </div>
   )
 }
 
