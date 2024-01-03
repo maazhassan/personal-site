@@ -66,6 +66,19 @@ export const web = {
         </span>
       ),
       github: "https://github.com/maazhassan/React-Sudoku-and-Solver"
+    },
+    {
+      title: "TEST TEST",
+      stack: "React, Flask, SQLite",
+      image: Sudoku,
+      description: (
+        <span>
+          A sudoku game that I made to learn full-stack development. I also wrote a custom
+          <span className={webColor}> TEST ALG</span> using
+          <span className={webColor}> TESTING!</span>.
+        </span>
+      ),
+      github: "https://github.com/maazhassan/React-Sudoku-and-Solver"
     }
   ]
 };

@@ -13,7 +13,7 @@ const ProjectViewMobile = props => {
   }
 
   const animProps = useSpring({
-    transform: `translateX(-${selectedProj * props.widthCalc}px)`
+    transform: `translateX(-${selectedProj * props.borderInnerWidth}px)`
   });
 
   return (
@@ -23,7 +23,7 @@ const ProjectViewMobile = props => {
           {props.data.projects.map((e, i) => {
             return (
               <div className="h-full relative" key={i}>
-                <div className="flex flex-col h-[90%] items-center pt-4 pb-8" style={{width: props.widthCalc}}>
+                <div className="flex flex-col h-[90%] items-center pt-4 pb-8" style={{width: props.borderInnerWidth}}>
                   <p className="absolute md:text-xl text-neutral-50 md:top-8 w-[90%]">
                     {e.description}
                   </p>
