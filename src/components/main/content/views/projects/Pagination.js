@@ -1,7 +1,7 @@
 const Pagination = props => {
   return (
     <div className="flex flex-row justify-center w-full h-[9px] gap-2 absolute bottom-5 left-1">
-      {props.data.projects.map((e, i) => {
+      {[...Array(props.size)].map((e, i) => {
         return (
           <svg
             xmlns="http://www.w3.org/2000/svg"

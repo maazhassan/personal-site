@@ -1,4 +1,4 @@
-const MobileArrow = props => {
+const PaginationArrow = props => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -15,4 +15,4 @@ const MobileArrow = props => {
   );
 }
 
-export default MobileArrow;
+export default PaginationArrow;
