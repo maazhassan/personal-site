@@ -1,3 +1,9 @@
+import PersonalSite from "../../../../../images/PersonalSite.png";
+import Library from "../../../../../images/Library.jpg";
+import BetterD2L from "../../../../../images/BetterD2L.png";
+import Sudoku from "../../../../../images/Sudoku.png";
+import Chess from "../../../../../images/Chess.png";
+import Crypto from "../../../../../images/Crypto.png";
 const webColor = "text-blue";
 const otherColor = "text-green";
 
@@ -12,7 +18,7 @@ export const web = {
     {
       title: "Personal Site",
       stack: "React, Tailwind CSS",
-      image: "https://i.imgur.com/nPiCk8W.png",
+      image: PersonalSite,
       description: (
         <span>
           The site you're on right now. I made it completely from 
@@ -25,7 +31,7 @@ export const web = {
     {
       title: "LibManSys",
       stack: "React, Express.js, MySQL",
-      image: "https://i.imgur.com/mGn8xC5.png",
+      image: Library,
       description: (
         <span>
           A library management application made in a group of 3 for a databases class. I worked on the
@@ -38,7 +44,7 @@ export const web = {
     {
       title: "Better D2L",
       stack: "Vue, Flask, SQLite",
-      image: "https://i.imgur.com/1i6KGSU.png",
+      image: BetterD2L,
       description: (
         <span>
           A student dashboard application made in a group of 5 for Calgary Hacks 2021. I worked on the
@@ -51,7 +57,7 @@ export const web = {
     {
       title: "Sudoku Solver",
       stack: "React, Flask, SQLite",
-      image: "https://i.imgur.com/rZc3Nx5.png",
+      image: Sudoku,
       description: (
         <span>
           A sudoku game that I made to learn full-stack development. I also wrote a custom
@@ -75,7 +81,7 @@ export const other = {
     {
       title: "Chess",
       stack: "Java, JavaFX",
-      image: "https://i.imgur.com/hIA3PPd.png",
+      image: Chess,
       description: (
         <span>
           A chess game with an AI made in a group of 4 for a Java class. It is an exact clone of the board game. I worked on the
@@ -88,7 +94,7 @@ export const other = {
     {
       title: "Crypto Charts",
       stack: "Python",
-      image: "https://i.imgur.com/P9WcQhd.png",
+      image: Crypto,
       description: (
         <span>
           An application to view cryptocurrency price charts. I made it to learn about
