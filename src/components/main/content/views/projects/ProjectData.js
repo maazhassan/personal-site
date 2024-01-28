@@ -4,6 +4,8 @@ import BetterD2L from "../../../../../images/BetterD2L.png";
 import Sudoku from "../../../../../images/Sudoku.png";
 import Chess from "../../../../../images/Chess.png";
 import Crypto from "../../../../../images/Crypto.png";
+import Disharmony from "../../../../../images/Disharmony.png";
+import Sorting from "../../../../../images/Sorting.png";
 const webColor = "text-blue";
 const otherColor = "text-green";
 
@@ -34,12 +36,25 @@ export const web = {
       image: Library,
       description: (
         <span>
-          A library management application made in a group of 3 for a databases class. I worked on the
-          <span className={webColor}> API</span> and
-          <span className={webColor}> database</span>.
+          An application to help libraries manage their catalogue and staff. Includes
+          <span className={webColor}> authentication</span> and a
+          <span className={webColor}> RESTful API</span>.
         </span>
       ),
       github: "https://github.com/maazhassan/Library-Management-System"
+    },
+    {
+      title: "Disharmony",
+      stack: "React, Python, MongoDB",
+      image: Disharmony,
+      description: (
+        <span>
+          A live chat application built using websockets.
+          Features include <span className={webColor}> user authentication</span>, <span className={webColor}> admin moderation</span>,
+          <span className={webColor}> friends</span>, and <span className={webColor}> image support</span>.
+        </span>
+      ),
+      github: "https://github.com/maazhassan/disharmony"
     },
     {
       title: "Better D2L",
@@ -68,18 +83,16 @@ export const web = {
       github: "https://github.com/maazhassan/React-Sudoku-and-Solver"
     },
     {
-      title: "TEST TEST",
-      stack: "React, Flask, SQLite",
-      image: Sudoku,
+      title: "Sorting Visualizer",
+      stack: "HTML, CSS, JavaScript",
+      image: Sorting,
       description: (
         <span>
-          A sudoku game that I made to learn full-stack development. I also wrote a custom
-          <span className={webColor}> TEST ALG</span> using
-          <span className={webColor}> TESTING!</span>.
+          A simple real-time visualizer for a variety of sorting algorithms.
         </span>
       ),
-      github: "https://github.com/maazhassan/React-Sudoku-and-Solver"
-    }
+      github: "https://github.com/maazhassan/Sorting-Visualizer"
+    },
   ]
 };
 
