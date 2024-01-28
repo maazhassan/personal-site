@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.3af34ec4.css",
-    "main.js": "/static/js/main.8bdf0d5c.js",
+    "main.css": "/static/css/main.ec3609cd.css",
+    "main.js": "/static/js/main.e5122c6c.js",
     "static/media/Rubik-Regular.ttf": "/static/media/Rubik-Regular.a1db7faf2ecd06901907.ttf",
     "static/media/Library.jpg": "/static/media/Library.be6e6c43eb5eb9f5db6f.jpg",
     "static/media/Chess.png": "/static/media/Chess.d4769cbb1fc761a75dd1.png",
+    "static/media/Disharmony.png": "/static/media/Disharmony.20c55fbe92b15b8072d9.png",
     "static/media/Crypto.png": "/static/media/Crypto.08c46a35fcfe949d9598.png",
     "static/media/BetterD2L.png": "/static/media/BetterD2L.0057956ce104dad6d906.png",
     "index.html": "/index.html",
-    "main.3af34ec4.css.map": "/static/css/main.3af34ec4.css.map",
-    "main.8bdf0d5c.js.map": "/static/js/main.8bdf0d5c.js.map"
+    "main.ec3609cd.css.map": "/static/css/main.ec3609cd.css.map",
+    "main.e5122c6c.js.map": "/static/js/main.e5122c6c.js.map"
   },
   "entrypoints": [
-    "static/css/main.3af34ec4.css",
-    "static/js/main.8bdf0d5c.js"
+    "static/css/main.ec3609cd.css",
+    "static/js/main.e5122c6c.js"
   ]
 }
