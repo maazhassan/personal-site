@@ -14,11 +14,11 @@ const Landing = props => {
 
   const hintTimeout = useRef(null);
 
-  useEffect(() => {
-    hintTimeout.current = setTimeout(() => setHintToggle(true), HINT_DELAY);
+  // useEffect(() => {
+  //   hintTimeout.current = setTimeout(() => setHintToggle(true), HINT_DELAY);
 
-    return () => clearTimeout(hintTimeout.current);
-  }, []);
+  //   return () => clearTimeout(hintTimeout.current);
+  // }, []);
 
   const animProps = useAnimatedFade(props.toggle, FADE_DELAY);
 
@@ -40,12 +40,12 @@ const Landing = props => {
           className="h-72 2xl:h-80 3xl:h-96 z-0 mx-auto left-0 right-0"
           styles={`fill-transparent ${props.switchStatus ? 'stroke-dark-blue' : 'stroke-neutral-50'} stroke-[5px]`}
         />
-        <Hint 
+        {/* <Hint 
           className={`text-lg absolute mx-auto left-0 right-0 -bottom-8 ${props.switchStatus ? 'text-dark-blue' : 'text-neutral-50'}`}
           text={<b>Click me! ^</b>}
           toggle={hintToggle}
           tag="p"
-        />
+        /> */}
       </div>
       <div className={`mt-24 md:mt-36 2xl:mt-56 3xl:mt-80 select-none text-5xl 2xl:text-6xl 3xl:text-7xl ${props.switchStatus ? "text-dark-blue" : "text-neutral-50"}`}>
         <Typewriter
@@ -54,6 +54,10 @@ const Landing = props => {
           }}
           onInit={typewriter => {
             typewriter.typeString('WELCOME TO MY CORNER<br class="hidden 2xl:block"/> OF THE INTERNET.')
+            .pauseFor(500)
+            .callFunction(() => {
+              props.onSwitchClicked();
+            })
             .start();
           }}
         />

@@ -24,7 +24,7 @@ const App = () => {
       showLanding ? (
         <Landing 
           switchStatus={switchStatus}
-          onSwitchClicked={() => handleSwitchClicked()}
+          onSwitchClicked={handleSwitchClicked}
           toggle={switchStatus}
         />
       ) : (
