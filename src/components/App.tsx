@@ -12,10 +12,11 @@ const shouldShowLanding = (): boolean => {
 };
 
 const App = () => {
-  const [showLanding] = useState(shouldShowLanding);
-  const [switchStatus, setStatus] = useState(showLanding);
+  const skipLanding = !shouldShowLanding();
+  const [switchStatus, setStatus] = useState(!skipLanding);
+  const [showLanding, setShowLanding] = useState(!skipLanding);
 
-  if (!showLanding) {
+  if (skipLanding) {
     document.body.classList.remove('bg-neutral-50');
     document.body.classList.add('bg-dark-blue');
   }
@@ -25,13 +26,14 @@ const App = () => {
     document.body.classList.add('bg-dark-blue');
     setStatus(false);
     setTimeout(() => {
+      setShowLanding(false);
       localStorage.setItem('landingSeenAt', String(Date.now()));
     }, MAIN_RENDER_DELAY);
   };
 
   return (
     <div className={`${window.innerHeight > 870 ? 'h-screen' : ''}`}>
-      {showLanding && switchStatus ? (
+      {showLanding ? (
         <Landing
           switchStatus={switchStatus}
           onSwitchClicked={handleSwitchClicked}
