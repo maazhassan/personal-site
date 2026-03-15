@@ -1,4 +1,4 @@
-import { BsEnvelopeFill, BsGithub, BsLinkedin } from 'react-icons/bs';
+import { BsEnvelopeFill, BsGithub, BsLinkedin, BsPencilSquare } from 'react-icons/bs';
 
 const TitleBar = () => {
   return (
@@ -17,6 +17,9 @@ const TitleBar = () => {
         </a>
         <a href="https://www.linkedin.com/in/maaz-hassan/" target="_blank" rel="noreferrer">
           <BsLinkedin className="text-neutral-50 hover:text-text-blue cursor-pointer" size="30px" />
+        </a>
+        <a href="/blog/">
+          <BsPencilSquare className="text-neutral-50 hover:text-text-blue cursor-pointer" size="30px" />
         </a>
       </div>
     </div>
