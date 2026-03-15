@@ -26,7 +26,7 @@ const About = ({ toggle }: AboutProps) => {
       className="absolute w-full h-full top-0 text-center flex flex-col justify-center items-center px-4 sm:px-10 pb-6"
     >
       <p className="text-md sm:text-lg md:text-2xl 3xl:text-3xl text-neutral-50 w-full md:w-[80%] lg:w-[70%] xl:w-[60%] 2xl:w-1/2">
-        <span>I'm a software developer and graduate from the </span>
+        <span>I'm a software engineer and a graduate from the </span>
         <a
           href="https://www.ucalgary.ca/"
           className="text-[#ffcd00] hover:cursor-pointer relative"
@@ -92,7 +92,7 @@ const About = ({ toggle }: AboutProps) => {
           />
         </a>.
         <br /><br /> */}
-        <span>Click a switch below to see some of my work!</span>
+        <span>Use the switches below to explore some of my work!</span>
       </p>
     </animated.div>
   );
