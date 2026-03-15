@@ -23,10 +23,10 @@ const About = ({ toggle }: AboutProps) => {
   return (
     <animated.div
       {...divAnimProps}
-      className="absolute w-full h-full top-0 text-center flex flex-col justify-center items-center px-10 pb-6"
+      className="absolute w-full h-full top-0 text-center flex flex-col justify-center items-center px-4 sm:px-10 pb-6"
     >
-      <p className="text-xl md:text-2xl 3xl:text-3xl text-neutral-50 w-full md:w-[80%] lg:w-1/2 xl:w-[40%] 2xl:w-2/5">
-        <span>A software developer graduate from the </span>
+      <p className="text-md sm:text-lg md:text-2xl 3xl:text-3xl text-neutral-50 w-full md:w-[80%] lg:w-[70%] xl:w-[60%] 2xl:w-1/2">
+        <span>I'm a software developer and graduate from the </span>
         <a
           href="https://www.ucalgary.ca/"
           className="text-[#ffcd00] hover:cursor-pointer relative"
@@ -47,8 +47,8 @@ const About = ({ toggle }: AboutProps) => {
         <br />
         <br />
         <span>
-          Currently building the next generation of well information management
-          software at{" "}
+          Currently, I'm helping build the next generation of well information
+          management software at{" "}
         </span>
         <a
           href="https://resourceenergysolutions.com/"
@@ -70,8 +70,9 @@ const About = ({ toggle }: AboutProps) => {
         <br />
         <br />
         <span>
-          Outside of work, I enjoy experimenting with new technologies, running
-          a small homelab, and building tools to solve everyday problems.
+          Outside of work, I enjoy experimenting with new technologies in my
+          homelab and building small tools to automate and improve everyday
+          workflows.
         </span>
         <br />
         <br />
