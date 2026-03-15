@@ -2,7 +2,6 @@ import { useState } from 'react';
 import Switch from '../../common/Switch';
 import Hint from './Hint';
 
-const switchDivClass = 'flex flex-col items-center gap-1 relative';
 const switchClass = 'h-28 lg:h-36 3xl:h-48 cursor-pointer';
 
 interface SwitchBarProps {
@@ -16,6 +15,11 @@ const SwitchBar = ({ activeSwitch, onSwitchClicked, switchReady, className }: Sw
   const [userSeen, setUserSeen] = useState(!!localStorage.getItem('userSeen'));
   const [hint, setHint] = useState<number | null>(null);
   const [hintToggle, setHintToggle] = useState(false);
+
+  const switchDivClass = (num: number) =>
+    `flex flex-col items-center gap-1 relative transition-opacity duration-300 ${
+      activeSwitch !== 0 && activeSwitch !== num ? 'opacity-40' : ''
+    }`;
 
   const handleSwitchClicked = (num: number) => {
     if (switchReady) {
@@ -33,7 +37,7 @@ const SwitchBar = ({ activeSwitch, onSwitchClicked, switchReady, className }: Sw
 
   return (
     <div className={'flex flex-row justify-center gap-8 sm:gap-24 md:gap-28 relative ' + (className ?? '')}>
-      <div className={switchDivClass}>
+      <div className={switchDivClass(1)}>
         <span className="text-xl md:text-3xl 3xl:text-4xl text-blue">Web</span>
         <Switch
           className={switchClass}
@@ -52,7 +56,7 @@ const SwitchBar = ({ activeSwitch, onSwitchClicked, switchReady, className }: Sw
           />
         )}
       </div>
-      <div className={switchDivClass}>
+      <div className={switchDivClass(2)}>
         <span className="text-xl md:text-3xl 3xl:text-4xl text-green">Apps</span>
         <Switch
           className={switchClass}
@@ -71,7 +75,7 @@ const SwitchBar = ({ activeSwitch, onSwitchClicked, switchReady, className }: Sw
           />
         )}
       </div>
-      <div className={switchDivClass}>
+      <div className={switchDivClass(3)}>
         <span className="text-xl md:text-3xl 3xl:text-4xl text-orange">Contact</span>
         <Switch
           className={switchClass}

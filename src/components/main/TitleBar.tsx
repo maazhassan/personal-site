@@ -18,7 +18,7 @@ const TitleBar = () => {
         <a href="https://www.linkedin.com/in/maaz-hassan/" target="_blank" rel="noreferrer">
           <BsLinkedin className="text-neutral-50 hover:text-text-blue cursor-pointer" size="30px" />
         </a>
-        <a href="/blog/">
+        <a href="/blog/" title="Blog">
           <BsPencilSquare className="text-neutral-50 hover:text-text-blue cursor-pointer" size="30px" />
         </a>
       </div>
