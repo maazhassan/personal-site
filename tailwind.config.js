@@ -1,6 +1,8 @@
-module.exports = {
+/** @type {import('tailwindcss').Config} */
+export default {
   content: [
-    './src/**/*.{js,jsx,ts,tsx}',
+    './index.html',
+    './src/**/*.{ts,tsx}',
   ],
   theme: {
     extend: {
@@ -13,12 +15,12 @@ module.exports = {
         'orange': '#e56f20',
       },
       fontFamily: {
-        'sans': ['Rubik', 'sans-serif']
+        'sans': ['Rubik', 'sans-serif'],
       },
       screens: {
         '3xl': '2000px',
-      }
+      },
     },
   },
   plugins: [],
-}
+};

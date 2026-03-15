@@ -1,6 +1,6 @@
-import { config, useTransition } from 'react-spring';
+import { config, useTransition } from '@react-spring/web';
 
-const useAnimatedHint = toggle => {
+const useAnimatedHint = (toggle: boolean) => {
   const transitions = useTransition(toggle, {
     from: { opacity: 0, transform: 'translateY(10px)' },
     enter: { opacity: 1, transform: 'translateY(0px)' },
@@ -9,6 +9,6 @@ const useAnimatedHint = toggle => {
   });
 
   return transitions;
-}
+};
 
 export default useAnimatedHint;

@@ -1,5 +1,5 @@
-import Landing from "./landing/Landing";
-import Main from "./main/Main";
+import Landing from './landing/Landing';
+import Main from './main/Main';
 import { useState } from 'react';
 
 const MAIN_RENDER_DELAY = 1400;
@@ -13,26 +13,24 @@ const App = () => {
     document.body.classList.add('bg-dark-blue');
     setStatus(false);
     setTimeout(() => {
-      setShowLanding(false)
-      localStorage.setItem('landingSwitch', true);
+      setShowLanding(false);
+      localStorage.setItem('landingSwitch', 'true');
     }, MAIN_RENDER_DELAY);
-  }
+  };
 
   return (
     <div className={`${window.innerHeight > 870 ? 'h-screen' : ''}`}>
-    {
-      showLanding ? (
-        <Landing 
+      {showLanding ? (
+        <Landing
           switchStatus={switchStatus}
           onSwitchClicked={handleSwitchClicked}
           toggle={switchStatus}
         />
       ) : (
         <Main />
-      )
-    }
+      )}
     </div>
   );
-}
+};
 
 export default App;

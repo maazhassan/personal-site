@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import TitleBar from './TitleBar';
 import Border from './Border';
 import SwitchBar from './switchbar/SwitchBar';
-import { animated } from 'react-spring';
+import { animated } from '@react-spring/web';
 import useAnimatedFade from '../../hooks/animatedFade';
 import Content from './content/Content';
 import { DimensionsProvider } from '../../contexts/dimensionsContext';
@@ -11,7 +11,7 @@ const borderColors = ['stroke-blue-gray', 'stroke-blue', 'stroke-green', 'stroke
 const INIT_BORDER_RENDER_DELAY = 50;
 const BORDER_REBOUND_DELAY = 1050;
 const SWITCH_READY_DELAY = 2100;
-const BORDER_HEIGHT_SCALE = window.innerWidth > 767 ? 0.600 : 0.565;
+const BORDER_HEIGHT_SCALE = window.innerWidth > 767 ? 0.6 : 0.565;
 
 const Main = () => {
   const [activeSwitch, setActiveSwitch] = useState(0);
@@ -36,32 +36,29 @@ const Main = () => {
 
   const [dimensions, setDimensions] = useState({
     width: window.innerWidth,
-    height: window.innerHeight * BORDER_HEIGHT_SCALE
+    height: window.innerHeight * BORDER_HEIGHT_SCALE,
   });
 
   useEffect(() => {
     const handleResize = () => {
       setDimensions({
         width: window.innerWidth,
-        height: window.innerHeight * BORDER_HEIGHT_SCALE
+        height: window.innerHeight * BORDER_HEIGHT_SCALE,
       });
     };
 
     window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    }
-  }, [dimensions]);
-
-  const handleSwitchClicked = num => {
+  const handleSwitchClicked = (num: number) => {
     if (switchReady) {
       activeSwitch === num ? setActiveSwitch(0) : setActiveSwitch(num);
       setBorderToggle(false);
       setSwitchReady(false);
       setTimeout(() => setSwitchReady(true), SWITCH_READY_DELAY);
     }
-  }
+  };
 
   const animProps = useAnimatedFade(mainFadeToggle);
 
@@ -73,22 +70,20 @@ const Main = () => {
       <TitleBar />
       <div className="relative">
         <DimensionsProvider value={dimensions}>
-          <Border 
-            className={color + " stroke-[4px] fill-transparent"}
+          <Border
+            className={color + ' stroke-[4px] fill-transparent'}
             toggle={borderToggle}
           />
-          <Content 
-            activeSwitch={activeSwitch}
-          />
+          <Content activeSwitch={activeSwitch} />
         </DimensionsProvider>
       </div>
       <SwitchBar
         activeSwitch={activeSwitch}
-        onSwitchClicked={num => handleSwitchClicked(num)}
+        onSwitchClicked={(num: number) => handleSwitchClicked(num)}
         switchReady={switchReady}
       />
     </animated.div>
   );
-}
+};
 
 export default Main;
