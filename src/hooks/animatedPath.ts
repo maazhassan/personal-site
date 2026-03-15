@@ -16,8 +16,8 @@ const useAnimatedPath = (toggle: boolean) => {
     immediate: !initialized.current,
     config: {
       mass: 1,
-      friction: 10,
-      tension: 30,
+      friction: 14,
+      tension: 55,
       clamp: true,
     },
   });
