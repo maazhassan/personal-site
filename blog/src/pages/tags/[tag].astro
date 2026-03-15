@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => {
+    return import.meta.env.PROD ? !data.draft : true;
+  });
+
+  const tags = new Set<string>();
+  posts.forEach((post) => {
+    post.data.tags?.forEach((tag) => tags.add(tag));
+  });
+
+  return Array.from(tags).map((tag) => ({
+    params: { tag },
+    props: {
+      tag,
+      posts: posts
+        .filter((p) => p.data.tags?.includes(tag))
+        .sort((a, b) => b.data.date.getTime() - a.data.date.getTime()),
+    },
+  }));
+}
+
+function getReadingTime(body: string): number {
+  const words = body.split(/\s+/).length;
+  return Math.max(1, Math.ceil(words / 200));
+}
+
+const { tag, posts } = Astro.props;
+---
+
+<BaseLayout title={`Posts tagged "${tag}" - Blog`}>
+  <Breadcrumbs tag={tag} />
+
+  <div class="mb-8 mt-6">
+    <h1 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
+      #{tag}
+    </h1>
+    <p class="mt-2 text-gray-600 dark:text-gray-400">
+      {posts.length} post{posts.length !== 1 ? 's' : ''} tagged with &ldquo;{tag}&rdquo;
+    </p>
+  </div>
+
+  <div class="divide-y divide-gray-100 dark:divide-gray-800/50">
+    {posts.map((post) => (
+      <PostCard
+        title={post.data.title}
+        description={post.data.description}
+        date={post.data.date}
+        slug={post.id}
+        tags={post.data.tags}
+        readingTime={getReadingTime(post.body ?? '')}
+      />
+    ))}
+  </div>
+</BaseLayout>

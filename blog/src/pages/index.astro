@@ -1,0 +1,72 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import SearchIsland from '../components/SearchIsland';
+
+const allPosts = await getCollection('blog', ({ data }) => {
+  return import.meta.env.PROD ? !data.draft : true;
+});
+
+const posts = allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+function getReadingTime(body: string): number {
+  const words = body.split(/\s+/).length;
+  return Math.max(1, Math.ceil(words / 200));
+}
+
+const POSTS_PER_PAGE = 10;
+const totalPages = Math.max(1, Math.ceil(posts.length / POSTS_PER_PAGE));
+const currentPage = 1;
+const paginatedPosts = posts.slice(0, POSTS_PER_PAGE);
+
+const searchPosts = posts.map((p) => ({
+  slug: p.id,
+  title: p.data.title,
+  description: p.data.description,
+  date: p.data.date.toISOString(),
+  tags: p.data.tags ?? [],
+  readingTime: getReadingTime(p.body ?? ''),
+}));
+---
+
+<BaseLayout title="Blog - Maaz Hassan">
+  <div class="mb-10">
+    <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Blog</h1>
+    <p class="mt-2 text-[1.05rem] text-gray-500 dark:text-gray-400">Thoughts, tutorials, and things I've learned.</p>
+  </div>
+
+  <SearchIsland client:load posts={searchPosts} basePath={import.meta.env.BASE_URL} />
+
+  <div id="post-list" class="divide-y divide-gray-100 dark:divide-gray-800/50">
+    {paginatedPosts.map((post) => (
+      <PostCard
+        title={post.data.title}
+        description={post.data.description}
+        date={post.data.date}
+        slug={post.id}
+        tags={post.data.tags}
+        readingTime={getReadingTime(post.body ?? '')}
+      />
+    ))}
+  </div>
+
+  {totalPages > 1 && (
+    <nav class="mt-12 flex items-center justify-center gap-2" aria-label="Pagination">
+      {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+        <a
+          href={page === 1 ? `${import.meta.env.BASE_URL}` : `${import.meta.env.BASE_URL}page/${page}`}
+          class:list={[
+            'rounded-lg px-3.5 py-2 text-sm font-medium transition-colors',
+            page === currentPage
+              ? 'bg-accent text-white'
+              : 'text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800',
+          ]}
+          aria-current={page === currentPage ? 'page' : undefined}
+        >
+          {page}
+        </a>
+      ))}
+    </nav>
+  )}
+</BaseLayout>

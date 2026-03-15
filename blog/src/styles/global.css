@@ -1,0 +1,145 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-accent: #6366f1;
+  --color-accent-light: #818cf8;
+  --color-accent-dark: #4f46e5;
+  --font-sans: "Inter", "system-ui", "-apple-system", "Segoe UI", "Roboto",
+    "Helvetica Neue", "Arial", "sans-serif";
+  --font-serif: "Georgia", "Cambria", "Times New Roman", "Times", serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "Consolas", "Monaco", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+/* Prevent transition flash on page load */
+html.no-transitions *,
+html.no-transitions *::before,
+html.no-transitions *::after {
+  transition: none !important;
+}
+
+/* Smooth theme transitions */
+body,
+body * {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+
+/* ── Typography ── */
+
+/* Prose overrides for article content */
+.prose {
+  --tw-prose-body: oklch(27.8% 0.033 256.848);
+  --tw-prose-headings: oklch(21% 0.034 264.665);
+  --tw-prose-links: #6366f1;
+  --tw-prose-bold: oklch(21% 0.034 264.665);
+  --tw-prose-counters: oklch(55.1% 0.027 264.364);
+  --tw-prose-bullets: oklch(70.7% 0.022 261.325);
+  --tw-prose-hr: oklch(92.8% 0.006 264.531);
+  --tw-prose-quotes: oklch(37.3% 0.034 259.733);
+  --tw-prose-quote-borders: #6366f1;
+  --tw-prose-code: oklch(21% 0.034 264.665);
+  --tw-prose-pre-code: oklch(92.8% 0.006 264.531);
+  --tw-prose-pre-bg: oklch(13% 0.028 261.692);
+}
+
+.dark .prose {
+  --tw-prose-body: oklch(87.2% 0.01 258.338);
+  --tw-prose-headings: oklch(96.7% 0.003 264.542);
+  --tw-prose-links: #818cf8;
+  --tw-prose-bold: oklch(96.7% 0.003 264.542);
+  --tw-prose-counters: oklch(55.1% 0.027 264.364);
+  --tw-prose-bullets: oklch(44.6% 0.03 256.802);
+  --tw-prose-hr: oklch(27.8% 0.033 256.848);
+  --tw-prose-quotes: oklch(87.2% 0.01 258.338);
+  --tw-prose-quote-borders: #818cf8;
+  --tw-prose-code: oklch(92.8% 0.006 264.531);
+  --tw-prose-pre-code: oklch(87.2% 0.01 258.338);
+  --tw-prose-pre-bg: oklch(17% 0.025 260);
+}
+
+.prose pre {
+  @apply overflow-x-auto rounded-xl border border-gray-200 p-5 text-sm leading-relaxed dark:border-gray-800;
+}
+
+.prose code:not(pre code) {
+  @apply rounded-md bg-gray-100 px-1.5 py-0.5 text-[0.875em] font-medium text-gray-800 dark:bg-gray-800 dark:text-gray-200;
+}
+
+.prose code:not(pre code)::before,
+.prose code:not(pre code)::after {
+  content: none;
+}
+
+.prose a {
+  @apply font-medium text-accent no-underline hover:underline;
+}
+
+.prose blockquote {
+  @apply border-l-[3px] border-l-accent/40 pl-5 font-serif text-[1.1em] italic text-gray-600 dark:text-gray-400;
+}
+
+.prose blockquote p {
+  @apply before:content-none after:content-none;
+}
+
+.prose h2 {
+  @apply mt-12 mb-4;
+}
+
+.prose h3 {
+  @apply mt-8 mb-3;
+}
+
+.prose hr {
+  @apply my-10 border-gray-200 dark:border-gray-800;
+}
+
+.prose img {
+  @apply rounded-lg;
+}
+
+.prose ul,
+.prose ol {
+  @apply my-4;
+}
+
+.prose li {
+  @apply my-1;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-gray-300 dark:bg-gray-700;
+}
+
+/* ── Selection ── */
+::selection {
+  @apply bg-accent/20 text-accent-dark;
+}
+
+.dark ::selection {
+  @apply bg-accent/30 text-accent-light;
+}
