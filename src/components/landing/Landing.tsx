@@ -40,7 +40,7 @@ const Landing = ({ switchStatus, onSwitchClicked, toggle }: LandingProps) => {
       <div className={`mt-24 md:mt-36 2xl:mt-56 3xl:mt-80 select-none text-5xl 2xl:text-6xl 3xl:text-7xl ${switchStatus ? 'text-dark-blue' : 'text-neutral-50'}`}>
         <Typewriter
           options={{
-            delay: localStorage.getItem('landingSwitch') ? 50 : 105,
+            delay: localStorage.getItem('landingSeenAt') ? 50 : 105,
           }}
           onInit={typewriter => {
             typewriter

@@ -3,24 +3,35 @@ import Main from './main/Main';
 import { useState } from 'react';
 
 const MAIN_RENDER_DELAY = 1400;
+const LANDING_COOLDOWN_MS = 24 * 60 * 60 * 1000; // 24 hours
+
+const shouldShowLanding = (): boolean => {
+  const lastSeen = localStorage.getItem('landingSeenAt');
+  if (!lastSeen) return true;
+  return Date.now() - Number(lastSeen) > LANDING_COOLDOWN_MS;
+};
 
 const App = () => {
-  const [switchStatus, setStatus] = useState(true);
-  const [showLanding, setShowLanding] = useState(true);
+  const [showLanding] = useState(shouldShowLanding);
+  const [switchStatus, setStatus] = useState(showLanding);
+
+  if (!showLanding) {
+    document.body.classList.remove('bg-neutral-50');
+    document.body.classList.add('bg-dark-blue');
+  }
 
   const handleSwitchClicked = () => {
     document.body.classList.remove('bg-neutral-50');
     document.body.classList.add('bg-dark-blue');
     setStatus(false);
     setTimeout(() => {
-      setShowLanding(false);
-      localStorage.setItem('landingSwitch', 'true');
+      localStorage.setItem('landingSeenAt', String(Date.now()));
     }, MAIN_RENDER_DELAY);
   };
 
   return (
     <div className={`${window.innerHeight > 870 ? 'h-screen' : ''}`}>
-      {showLanding ? (
+      {showLanding && switchStatus ? (
         <Landing
           switchStatus={switchStatus}
           onSwitchClicked={handleSwitchClicked}
