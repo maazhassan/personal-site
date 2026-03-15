@@ -20,7 +20,7 @@ const Content = ({ activeSwitch }: ContentProps) => {
       setTimeout(() => {
         setShown(activeSwitch);
         setUnmountToggle(activeSwitch);
-      }, 700);
+      }, 500);
     } else {
       notInitialRender.current = true;
     }

@@ -9,8 +9,8 @@ import { DimensionsProvider } from '../../contexts/dimensionsContext';
 
 const borderColors = ['stroke-blue-gray', 'stroke-blue', 'stroke-green', 'stroke-orange'];
 const INIT_BORDER_RENDER_DELAY = 50;
-const BORDER_REBOUND_DELAY = 700;
-const SWITCH_READY_DELAY = 1450;
+const BORDER_REBOUND_DELAY = 600;
+const SWITCH_READY_DELAY = 1150;
 const BORDER_HEIGHT_SCALE = window.innerWidth > 767 ? 0.6 : 0.565;
 
 const Main = () => {
