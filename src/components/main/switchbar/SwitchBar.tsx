@@ -34,7 +34,7 @@ const SwitchBar = ({ activeSwitch, onSwitchClicked, switchReady, className }: Sw
   return (
     <div className={'flex flex-row justify-center gap-8 sm:gap-24 md:gap-28 relative ' + (className ?? '')}>
       <div className={switchDivClass}>
-        <span className="text-xl md:text-3xl 3xl:text-4xl text-blue">Web Dev</span>
+        <span className="text-xl md:text-3xl 3xl:text-4xl text-blue">Web</span>
         <Switch
           className={switchClass}
           onClick={() => { onSwitchClicked(1); handleSwitchClicked(1); }}
@@ -53,7 +53,7 @@ const SwitchBar = ({ activeSwitch, onSwitchClicked, switchReady, className }: Sw
         )}
       </div>
       <div className={switchDivClass}>
-        <span className="text-xl md:text-3xl 3xl:text-4xl text-green">Other Dev</span>
+        <span className="text-xl md:text-3xl 3xl:text-4xl text-green">Apps</span>
         <Switch
           className={switchClass}
           onClick={() => { onSwitchClicked(2); handleSwitchClicked(2); }}
