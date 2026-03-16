@@ -38,12 +38,27 @@ export default function SearchIsland({ posts, basePath }: Props) {
   const filtered = useMemo(() => {
     if (!query.trim()) return null;
     const q = query.toLowerCase();
-    return posts.filter(
-      (p) =>
-        p.title.toLowerCase().includes(q) ||
-        p.description.toLowerCase().includes(q) ||
-        p.tags.some((t) => t.toLowerCase().includes(q))
-    );
+
+    return posts
+      .map((p) => {
+        let score = 0;
+        const title = p.title.toLowerCase();
+        const desc = p.description.toLowerCase();
+
+        if (title === q) score += 100;
+        else if (title.startsWith(q)) score += 75;
+        else if (title.includes(q)) score += 50;
+
+        if (p.tags.some((t) => t.toLowerCase() === q)) score += 40;
+        else if (p.tags.some((t) => t.toLowerCase().includes(q))) score += 20;
+
+        if (desc.includes(q)) score += 10;
+
+        return { post: p, score };
+      })
+      .filter((r) => r.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .map((r) => r.post);
   }, [query, posts]);
 
   return (
