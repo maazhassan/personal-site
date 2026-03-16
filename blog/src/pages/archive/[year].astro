@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getReadingTime } from '../../utils/posts';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => {
+    return import.meta.env.PROD ? !data.draft : true;
+  });
+
+  const years = new Set<number>();
+  posts.forEach((post) => years.add(post.data.date.getFullYear()));
+
+  return Array.from(years).map((year) => ({
+    params: { year: String(year) },
+    props: {
+      year,
+      posts: posts
+        .filter((p) => p.data.date.getFullYear() === year)
+        .sort((a, b) => b.data.date.getTime() - a.data.date.getTime()),
+    },
+  }));
+}
+
+const { year, posts } = Astro.props;
+---
+
+<BaseLayout title={`${year} - Archive`}>
+  <Breadcrumbs archive={[
+    { label: 'Archive', href: `${import.meta.env.BASE_URL}archive/` },
+    { label: String(year) },
+  ]} />
+
+  <div class="mb-8 mt-6">
+    <h1 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
+      {year}
+    </h1>
+    <p class="mt-2 text-gray-600 dark:text-gray-400">
+      {posts.length} post{posts.length !== 1 ? 's' : ''} from {year}
+    </p>
+  </div>
+
+  <div class="divide-y divide-gray-100 dark:divide-gray-800/50">
+    {posts.map((post) => (
+      <PostCard
+        title={post.data.title}
+        description={post.data.description}
+        date={post.data.date}
+        slug={post.id}
+        tags={post.data.tags}
+        readingTime={getReadingTime(post.body ?? '')}
+      />
+    ))}
+  </div>
+</BaseLayout>
