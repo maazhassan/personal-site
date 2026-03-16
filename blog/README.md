@@ -1,46 +1,54 @@
-# Astro Starter Kit: Basics
+# Blog
+
+The blog for [maazhassan.net/blog](https://maazhassan.net/blog/), built with [Astro](https://astro.build/).
+
+## Tech Stack
+
+Astro 6, React, Tailwind CSS, MDX, content collections, RSS feed generation.
+
+## Development
 
 ```sh
-npm create astro@latest -- --template basics
+npm install
+npm run dev          # starts dev server at localhost:4321
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Building
 
-## 🚀 Project Structure
+The blog is typically built as part of the root project's build pipeline (see root `README.md`). To build standalone:
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```sh
+npm run build        # outputs to ../public/blog/
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+The Astro config sets `base: '/blog/'` and `outDir: '../public/blog'` so the built output integrates into the main site's `public/` folder before Vite bundles everything.
 
-## 🧞 Commands
+## Structure
 
-All commands are run from the root of the project, from a terminal:
+```
+├── src/
+│   ├── content/          # Blog posts (MDX/MD content collections)
+│   ├── components/       # React components (search, theme toggle, etc.)
+│   ├── layouts/          # Page layouts
+│   ├── pages/            # Astro pages and RSS endpoint
+│   ├── styles/           # Global styles
+│   └── utils/            # Helpers (reading time, etc.)
+└── astro.config.mjs      # Astro configuration
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Adding a Post
 
-## 👀 Want to learn more?
+Add a new `.md` or `.mdx` file to `src/content/posts/` with frontmatter:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```md
+---
+title: "Post Title"
+description: "A short description."
+date: 2026-03-16
+tags: ["tag1", "tag2"]
+---
+
+Post content here.
+```
+
+The post will appear automatically on the blog index and in the RSS feed.
