@@ -27,7 +27,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "predeploy": "npm run build",
+    "build:blog": "npm --prefix blog run build",
+    "predeploy": "npm run build:blog && npm run build",
     "deploy": "gh-pages --dotfiles -d dist"
   }
 }
