@@ -10,9 +10,6 @@ const { title, tag } = Astro.props;
 <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400">
   <ol class="flex flex-wrap items-center gap-1.5">
     <li>
-      <a href="/" class="transition-colors hover:text-accent">Home</a>
-    </li>
-    <li class="before:mr-1.5 before:content-['/']">
       {title || tag ? (
         <a href={`${import.meta.env.BASE_URL}`} class="transition-colors hover:text-accent">Blog</a>
       ) : (
