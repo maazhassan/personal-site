@@ -1,12 +1,12 @@
 ---
 title: Building a Blog with Astro
-description: A walkthrough of how I built this blog using Astro, Tailwind CSS, and content collections — and why static sites still win.
+description: A walkthrough of how I built this blog using Astro, Tailwind CSS, and content collections.
 date: 2026-03-10
 tags: [astro, webdev, tutorial]
 draft: false
 ---
 
-When I set out to build a blog, I wanted something fast, minimal, and easy to maintain. After evaluating a handful of frameworks, I landed on **Astro** — and I haven't looked back.
+When I set out to build a blog, I wanted something fast, minimal, and easy to maintain. After evaluating a handful of frameworks, I landed on **Astro**.
 
 ## Why Astro?
 
@@ -22,7 +22,7 @@ Astro ships **zero JavaScript by default**. That means every page is static HTML
 Astro's content collections give you type-safe access to your Markdown frontmatter. Here's what a basic schema looks like:
 
 ```typescript
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z } from "astro:content";
 
 const blog = defineCollection({
   schema: z.object({
@@ -57,17 +57,17 @@ function greet(name) {
   return `Hello, ${name}!`;
 }
 
-console.log(greet('world'));
+console.log(greet("world"));
 ```
 
 ### Lists and Formatting
 
 Things I like about this setup:
 
-- **Simplicity** — Markdown files, no database
-- **Speed** — static HTML, no client-side rendering
-- **Flexibility** — Astro Islands for interactive bits
-- **Portability** — works as an Obsidian vault too
+- **Simplicity**: Markdown files, no database
+- **Speed**: static HTML, no client-side rendering
+- **Flexibility**: Astro Islands for interactive bits
+- **Portability**: works as an Obsidian vault too
 
 > The best blog engine is the one that gets out of your way and lets you write.
 
