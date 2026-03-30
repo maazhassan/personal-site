@@ -8,7 +8,7 @@ export async function GET(context: APIContext) {
   return rss({
     title: 'Maaz Hassan - Blog',
     description: 'Thoughts, tutorials, and things I\'ve learned.',
-    site: context.site!,
+    site: new URL('/blog', context.site!),
     items: posts
       .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
       .map((post) => ({
