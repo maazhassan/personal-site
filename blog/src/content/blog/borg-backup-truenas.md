@@ -8,7 +8,7 @@ draft: false
 
 I recently got tired of not having a proper backup system for my daily-driven Linux desktop. I run CachyOS (an Arch-based distro), and while I don't keep anything irreplaceable without _some_ copy somewhere, I wanted a system where if my drive died or I needed to reinstall, I could get back to a fully working setup without spending a weekend manually reconfiguring everything.
 
-My requirements for the system were: automatic daily backups, deduplication so I'm not wasting disk space on identical files, and the ability to restore selectively. I also wanted the backups stored on my TrueNAS server (currently running SCALE 25.10.1), which already has redundant storage. I decided to go with the heavily recommended [BorgBackup](https://www.borgbackup.org/) software.
+My requirements for the system were: automatic daily backups, deduplication so I'm not wasting disk space on identical files, and the ability to restore selectively. I also wanted the backups stored on my TrueNAS server (currently running SCALE 25.10.1), which has RAIDZ1 redundancy. I decided to go with the highly praised [BorgBackup](https://www.borgbackup.org/) software for this project.
 
 ## The Setup on TrueNAS
 
@@ -221,6 +221,6 @@ There are a few things I want to add to this setup:
 
 **An automated restore test.** The backup is only as good as your ability to restore it. I'd like to set up a script that periodically spins up a fresh VM or Distrobox container, restores the latest backup into it, and runs some basic checks (do the expected files exist, do the package lists parse correctly, etc.). It would be good to know that my backups actually work before I ever need to use them...
 
-**Backup health monitoring.** Right now, if the backup silently fails (say, the NAS is unreachable), I won't know until I manually check the journal. Adding a simple notification system (a webhook to a Discord or Ntfy server, or even just a healthcheck ping to something like Uptime Kuma) that fires on success or failure would give me confidence that the system is actually working without needing to check on it.
+**Backup health monitoring.** Right now, if the backup silently fails (say, the NAS is unreachable), I won't know until I manually check the journal (`journalctl -u borg-backup`). Adding a simple notification system (a webhook to a Discord or Ntfy server, or even just a healthcheck ping to something like Uptime Kuma) that fires on success or failure would give me confidence that the system is actually working without needing to check on it.
 
-**Pre-backup snapshot with Btrfs.** Since CachyOS uses Btrfs by default, I could take an atomic Btrfs snapshot right before Borg runs. This would guarantee a completely consistent backup, since Borg backing up a live filesystem can theoretically catch files mid-write. For most desktop use this is unlikely to matter, but for databases or VM images it could be significant.
+**Pre-backup snapshot with Btrfs.** My system uses Btrfs. I could take an atomic Btrfs snapshot right before Borg runs. This would guarantee a completely consistent backup, since Borg backing up a live filesystem can theoretically catch files mid-write. For most desktop use this is unlikely to matter, but for databases or VM images it could be significant.

@@ -36,11 +36,11 @@ Reads are served from any node. This means they can be slightly stale (a followe
 
 ## Why Go?
 
-Go turned out to be a natural fit for this kind of project. A few reasons:
+Go is a natural fit for this kind of project. A few reasons:
 
 **Goroutines are cheap.** When the leader replicates an entry, it fires one goroutine per peer. When it sends heartbeats, same thing. In Java or Python, you'd think twice about spawning threads this casually. In Go, goroutines cost ~2KB of stack each, so you really can just spin them up whenever you need to.
 
-**`sync.RWMutex` is the right primitive.** The KV store uses a reader-writer lock, allowing multiple goroutines to read concurrently, but writes are exclusive. This maps perfectly to a read-heavy workload. The Raft state machine uses a regular `sync.Mutex` since almost every operation mutates state.
+**`sync.RWMutex` is exactly the primitive we need.** The KV store uses a reader-writer lock, allowing multiple goroutines to read concurrently, but writes are exclusive. This maps perfectly to a read-heavy workload. The Raft state machine uses a regular `sync.Mutex` since almost every operation mutates state.
 
 **Channels for coordination.** The election timer doesn't use `time.Sleep` in a loop. Instead, it uses `select` over three channels: a timeout, a reset signal, and a stop signal:
 
@@ -57,7 +57,7 @@ case <-r.stopCh:
 
 This is the idiomatic Go way to multiplex concurrent events, and it completely eliminates the need for polling, callbacks, or event loops.
 
-**`context.Context` everywhere.** Every HTTP handler, every RPC call, every store operation takes a context. It isn't heavily used right now, but it means adding timeouts, tracing, or cancellation later is just a matter of passing a different context with no interface changes.
+**`context.Context` everywhere.** Every HTTP handler, RPC call, and store operation takes a context. It isn't heavily used right now, but it means adding timeouts, tracing, or cancellation later is just a matter of passing a different context with no interface changes.
 
 ## How the Raft Implementation Works
 
@@ -188,7 +188,3 @@ curl -s localhost:8082/health | jq .state
 **Add proper tests from the start.** The modular structure (interfaces, dependency injection) makes the code testable, but I didn't write tests as I went. A test harness that simulates network partitions and node failures would have caught the commit propagation bug much earlier.
 
 **Implement log consistency checks.** Skipping `prevLogIndex` / `prevLogTerm` works for the happy path, but it means a follower that misses a few AppendEntries (due to a network blip) will have a gap in its log that never gets filled. Real Raft handles this with the leader tracking each follower's next index and retrying from there.
-
----
-
-Building this taught me more about distributed consensus than reading about it ever did. Once you've debugged election duels and term inflation at the log level, the design decisions in tools like etcd and CockroachDB start to make a lot more sense.
