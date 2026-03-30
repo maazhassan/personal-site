@@ -6,13 +6,15 @@ tags: [astro, webdev, blog]
 draft: false
 ---
 
+First post, kind of using it both as a light explanation of this blog itself and as a test of markdown rendering.
+
 When I set out to build a blog, I wanted something fast, minimal, and easy to maintain. After evaluating a handful of frameworks, I landed on **Astro**.
 
 ## Why Astro?
 
 Astro ships **zero JavaScript by default**. That means every page is static HTML until you explicitly opt into interactivity. For a blog, this is exactly what you want:
 
-- Blazing fast page loads
+- Fast page loads
 - Great SEO out of the box
 - Markdown-first content workflow
 - Simple deployment to any static host
@@ -62,18 +64,14 @@ console.log(greet("world"));
 
 ### Lists and Formatting
 
-Things I like about this setup:
+What I like about this setup:
 
 - **Simplicity**: Markdown files, no database
 - **Speed**: static HTML, no client-side rendering
 - **Flexibility**: Astro Islands for interactive bits
 - **Portability**: works as an Obsidian vault too
 
-> The best blog engine is the one that gets out of your way and lets you write.
-
 ## What's Next
-
-A few things on the roadmap:
 
 1. Add syntax highlighting themes for light/dark mode
 2. Implement related posts suggestions
@@ -82,4 +80,4 @@ A few things on the roadmap:
 
 ---
 
-If you're thinking about starting a blog (and want to build it yourself like me), give Astro a try. The developer experience is excellent, and the performance is hard to beat.
+If you're thinking about starting a blog and want to build it yourself, give Astro a try. I've been happy with it so far.

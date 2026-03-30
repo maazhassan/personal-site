@@ -1,6 +1,6 @@
 ---
 title: Building a Distributed KV Store in Go with Raft
-description: A deep dive into building a distributed in-memory key-value store from scratch in Go, implementing simplified Raft consensus for leader election and log replication.
+description: Building a distributed in-memory key-value store from scratch in Go, implementing simplified Raft consensus for leader election and log replication.
 date: 2026-03-23
 tags: [go, distributed-systems, raft, backend]
 draft: false
@@ -91,7 +91,7 @@ The fix was to piggyback the leader's `commitIndex` on heartbeats. Since heartbe
 
 ## Go Patterns Worth Knowing
 
-A few patterns came up repeatedly that are worth knowing if you write Go:
+A few patterns came up repeatedly that I think are useful if you write Go:
 
 ### Snapshot-then-release for locks
 

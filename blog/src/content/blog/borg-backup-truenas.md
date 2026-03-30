@@ -6,7 +6,7 @@ tags: [linux, homelab, backup]
 draft: false
 ---
 
-I recently got tired of not having a proper backup system for my daily-driven Linux desktop. I run CachyOS (an Arch-based distro), and while I don't keep anything irreplaceable without _some_ copy somewhere, I wanted a system where if my drive died or I needed to reinstall, I could get back to a fully working setup without spending a weekend manually reconfiguring everything.
+I recently built a proper automated backup system for my daily-driven Linux desktop. It's something I've been meaning to do for a while. I'm running CachyOS right now (an Arch-based distro), and while I don't keep anything irreplaceable without _some_ copy somewhere, I wanted a system where if my drive died or I needed/wanted to reinstall, I could get back to a fully working setup without spending a weekend manually reconfiguring everything.
 
 My requirements for the system were: automatic daily backups, deduplication so I'm not wasting disk space on identical files, and the ability to restore selectively. I also wanted the backups stored on my TrueNAS server (currently running SCALE 25.10.1), which has RAIDZ1 redundancy. I decided to go with the highly praised [BorgBackup](https://www.borgbackup.org/) software for this project.
 
@@ -82,7 +82,7 @@ echo "--- Compacting Repository ---"
 borg compact
 ```
 
-A few things worth explaining here:
+The important parts:
 
 **The package list export** is probably the most useful part for disaster recovery on Arch. `pacman -Qqe` dumps every explicitly installed package, and `pacman -Qqm` dumps everything that came from the AUR. If I ever need to rebuild on a fresh install (even a different distro), those lists tell me exactly what I had. On Arch, you can feed that list right back into `pacman -S --needed - < pkglist.txt` to reinstall everything in one shot.
 
@@ -215,7 +215,7 @@ Things like custom systemd services, network configs, and application-specific c
 
 ## Future Improvements
 
-There are a few things I want to add to this setup:
+Some things I want to add to this setup eventually:
 
 **Move the passphrase out of the script.** Right now `BORG_PASSPHRASE` is set directly in the script, which works but isn't great practice. Borg supports `BORG_PASSCOMMAND`, which lets you pull the passphrase from an external source. Something like `BORG_PASSCOMMAND="cat /root/.borg-passphrase"` with the file locked to `chmod 600` would be a straightforward improvement. For an even cleaner setup, you could pull it from a secret manager or a GPG-encrypted file.
 
