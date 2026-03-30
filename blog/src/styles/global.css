@@ -52,8 +52,8 @@ body * {
   --tw-prose-quotes: oklch(37.3% 0.034 259.733);
   --tw-prose-quote-borders: #6366f1;
   --tw-prose-code: oklch(21% 0.034 264.665);
-  --tw-prose-pre-code: oklch(92.8% 0.006 264.531);
-  --tw-prose-pre-bg: oklch(13% 0.028 261.692);
+  --tw-prose-pre-code: oklch(37% 0.034 259.733);
+  --tw-prose-pre-bg: #fff;
 }
 
 .dark .prose {
@@ -69,6 +69,19 @@ body * {
   --tw-prose-code: oklch(92.8% 0.006 264.531);
   --tw-prose-pre-code: oklch(87.2% 0.01 258.338);
   --tw-prose-pre-bg: oklch(17% 0.025 260);
+}
+
+/* Shiki dual theme: light by default, dark when .dark class is present */
+.astro-code,
+.astro-code span {
+  color: var(--shiki-light) !important;
+  background-color: var(--shiki-light-bg) !important;
+}
+
+.dark .astro-code,
+.dark .astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
 }
 
 .prose pre {
@@ -110,6 +123,10 @@ body * {
 
 .prose img {
   @apply rounded-lg;
+}
+
+.prose figcaption {
+  @apply text-center text-sm text-gray-500 dark:text-gray-400 mt-2;
 }
 
 .prose ul,

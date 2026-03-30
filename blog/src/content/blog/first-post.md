@@ -2,7 +2,7 @@
 title: Building a Blog with Astro
 description: A walkthrough of how I built this blog using Astro, Tailwind CSS, and content collections.
 date: 2026-03-10
-tags: [astro, webdev, tutorial]
+tags: [astro, webdev, blog]
 draft: false
 ---
 
@@ -82,4 +82,4 @@ A few things on the roadmap:
 
 ---
 
-If you're thinking about starting a blog, give Astro a try. The developer experience is excellent, and the performance is hard to beat.
+If you're thinking about starting a blog (and want to build it yourself like me), give Astro a try. The developer experience is excellent, and the performance is hard to beat.
